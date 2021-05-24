@@ -62,9 +62,10 @@
         </p>
         <ft-timestamp-catcher
           class="commentText"
-          :input-html="comment.text"
           @timestamp-event="onTimestamp"
         />
+          {{comment.text}}
+        <ft-timestamp-catcher>
         <p class="commentLikeCount">
           <font-awesome-icon
             icon="thumbs-up"
@@ -125,9 +126,10 @@
             </p>
             <ft-timestamp-catcher
               class="commentText"
-              :input-html="reply.text"
               @timestamp-event="onTimestamp"
-            />
+            >
+              {{reply.text}}
+            </ft-timestamp-catcher>
             <p class="commentLikeCount">
               <font-awesome-icon
                 icon="thumbs-up"
