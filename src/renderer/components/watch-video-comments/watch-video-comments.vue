@@ -63,9 +63,9 @@
         <ft-timestamp-catcher
           class="commentText"
           @timestamp-event="onTimestamp"
-        />
-          {{comment.text}}
-        <ft-timestamp-catcher>
+        >
+          {{ comment.text }}
+        </ft-timestamp-catcher>
         <p class="commentLikeCount">
           <font-awesome-icon
             icon="thumbs-up"
@@ -128,7 +128,7 @@
               class="commentText"
               @timestamp-event="onTimestamp"
             >
-              {{reply.text}}
+              {{ reply.text }}
             </ft-timestamp-catcher>
             <p class="commentLikeCount">
               <font-awesome-icon
