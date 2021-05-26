@@ -100,7 +100,7 @@
           <p
             v-if="superChat.message.length > 0"
             class="chatMessage"
-            v-html="superChat.messageHtml"
+            v-text="superChat.messageHtml"
           />
         </div>
       </div>
@@ -140,7 +140,7 @@
             <p
               v-if="comment.message.length > 0"
               class="chatMessage"
-              v-html="comment.messageHtml"
+              v-text="comment.messageHtml"
             />
           </div>
           <div
@@ -177,7 +177,7 @@
               <span
                 v-if="comment.message.length > 0"
                 class="chatMessage"
-                v-html="comment.messageHtml"
+                v-text="comment.messageHtml"
               />
             </p>
           </div>

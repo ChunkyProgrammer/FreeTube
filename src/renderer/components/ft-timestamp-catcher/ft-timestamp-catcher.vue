@@ -1,7 +1,7 @@
 <template>
   <p
     @timestamp-clicked="catchTimestampClick"
-    v-html="detectTimestamps(inputHtml)"
+    v-text="detectTimestamps(inputHtml)"
   />
 </template>
 
