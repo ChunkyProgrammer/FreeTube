@@ -72,7 +72,8 @@ export default Vue.extend({
         'copyYoutubeChannel',
         'openInvidiousChannel',
         'copyInvidiousChannel'
-      ]
+      ],
+      verified: false
     }
   },
   computed: {
@@ -343,7 +344,7 @@ export default Vue.extend({
       this.id = this.data.videoId
       this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
-
+      this.verified = this.data.verified || this.data.authorVerified
       this.channelName = this.data.author
       this.channelId = this.data.authorId
       this.duration = this.calculateVideoDuration(this.data.lengthSeconds)

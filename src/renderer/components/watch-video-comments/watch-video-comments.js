@@ -310,6 +310,7 @@ export default Vue.extend({
           comment.text = autolinker.link(comment.content.replace(/(<(?!br>)([^>]+)>)/ig, ''))
           comment.dataType = 'invidious'
           comment.isOwner = comment.authorIsChannelOwner
+          comment.isVerified = comment.verified
 
           if (typeof (comment.replies) !== 'undefined' && typeof (comment.replies.replyCount) !== 'undefined') {
             comment.numReplies = comment.replies.replyCount
@@ -380,6 +381,7 @@ export default Vue.extend({
           comment.numReplies = 0
           comment.replyContinuation = ''
           comment.replies = []
+          comment.isVerified = comment.verified
 
           return comment
         })

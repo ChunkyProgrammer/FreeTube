@@ -45,6 +45,14 @@
           :to="`/channel/${channelId}`"
         >
           {{ channelName }}
+          <span
+            :aria-label="$t('Comments.Verified')"
+          >
+            <font-awesome-icon
+              v-if="verified"
+              icon="check-circle"
+            />
+          </span>
         </router-link>
       </div>
     </div>

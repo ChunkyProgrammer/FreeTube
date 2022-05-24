@@ -50,6 +50,7 @@ export default Vue.extend({
       searchResults: [],
       shownElementList: [],
       apiUsed: '',
+      verified: false,
       videoSelectValues: [
         'newest',
         'oldest',
@@ -252,6 +253,7 @@ export default Vue.extend({
       ytch.getChannelInfo({ channelId: this.id }).then((response) => {
         this.id = response.authorId
         this.channelName = response.author
+        this.verified = response.isVerified
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         if (this.hideChannelSubscriptions || response.subscriberCount === 0) {
           this.subCount = null
@@ -355,8 +357,8 @@ export default Vue.extend({
       this.apiUsed = 'invidious'
 
       this.invidiousGetChannelInfo(this.id).then((response) => {
-        console.log(response)
         this.channelName = response.author
+        this.verified = response.authorVerified
         document.title = `${this.channelName} - ${process.env.PRODUCT_NAME}`
         this.id = response.authorId
         if (this.hideChannelSubscriptions) {

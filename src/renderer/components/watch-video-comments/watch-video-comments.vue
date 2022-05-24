@@ -68,6 +68,14 @@
           >
             {{ comment.author }}
           </span>
+          <span
+            :aria-label="$t('Comments.Verified')"
+          >
+            <font-awesome-icon
+              v-if="comment.isVerified"
+              icon="check-circle"
+            />
+          </span>
           <img
             v-if="comment.isMember"
             :src="comment.memberIconUrl"
@@ -144,6 +152,14 @@
                 @click="goToChannel(reply.authorLink)"
               >
                 {{ reply.author }}
+              </span>
+              <span
+                :aria-label="$t('Comments.Verified')"
+              >
+                <font-awesome-icon
+                  v-if="comment.isVerified"
+                  icon="check-circle"
+                />
               </span>
               <img
                 v-if="reply.isMember"

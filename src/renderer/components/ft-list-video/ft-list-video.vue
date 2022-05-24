@@ -90,6 +90,14 @@
           :to="`/channel/${channelId}`"
         >
           <span>{{ channelName }}</span>
+          <span
+            :aria-label="$t('Comments.Verified')"
+          >
+            <font-awesome-icon
+              v-if="verified"
+              icon="check-circle"
+            />
+          </span>
         </router-link>
         <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
           <span class="viewCount">• {{ parsedViewCount }}</span>

@@ -127,6 +127,11 @@ export default Vue.extend({
       ytrend.scrape_trending_page(param).then((result) => {
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+        }).map(item => {
+          if (item.type === 'video') {
+            item.verified = item.isVerified
+          }
+          return item
         })
 
         this.shownResults = returnData
@@ -182,10 +187,15 @@ export default Vue.extend({
           return
         }
 
-        console.log(result)
+        console.log(result[0])
 
         const returnData = result.filter((item) => {
           return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
+        }).map(item => {
+          if (item.type === 'video') {
+            item.verified = item.isVerified
+          }
+          return item
         })
 
         this.shownResults = returnData

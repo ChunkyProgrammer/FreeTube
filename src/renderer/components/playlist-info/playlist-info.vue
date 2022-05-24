@@ -36,6 +36,14 @@
         class="channelName"
       >
         {{ channelName }}
+        <span
+          :aria-label="$t('Comments.Verified')"
+        >
+          <font-awesome-icon
+            v-if="channelVerified"
+            icon="check-circle"
+          />
+        </span>
       </h3>
     </div>
     <br>

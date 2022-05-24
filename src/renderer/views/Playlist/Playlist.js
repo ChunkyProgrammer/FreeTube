@@ -78,7 +78,8 @@ export default Vue.extend({
           channelName: result.author ? result.author.name : '',
           channelThumbnail: result.author ? result.author.bestAvatar.url : '',
           channelId: result.author ? result.author.channelID : '',
-          infoSource: 'local'
+          infoSource: 'local',
+          verified: this.result.verified
         }
 
         this.playlistItems = result.items.map((video) => {

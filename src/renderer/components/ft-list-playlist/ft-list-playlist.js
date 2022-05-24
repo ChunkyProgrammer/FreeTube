@@ -25,7 +25,8 @@ export default Vue.extend({
       thumbnail: 'https://i.ytimg.com/vi/JGwWNGJdvx8/mqdefault.jpg',
       channelName: '#RedMusic: Just Hits',
       videoCount: 200,
-      description: ''
+      description: '',
+      verified: false
     }
   },
   computed: {
@@ -84,6 +85,7 @@ export default Vue.extend({
       this.channelLink = this.data.authorUrl
       this.playlistLink = this.data.playlistId
       this.videoCount = this.data.videoCount
+      this.verified = this.data.authorVerified
 
       if (this.data.proxyThumbnail === false) {
         this.thumbnail = this.data.playlistThumbnail
@@ -97,6 +99,7 @@ export default Vue.extend({
       this.channelLink = this.data.owner.url
       this.playlistLink = this.data.url
       this.videoCount = this.data.length
+      this.verified = this.data.owner.verified
     },
 
     ...mapActions([

@@ -31,7 +31,8 @@ export default Vue.extend({
         'openYoutube',
         'copyInvidious',
         'openInvidious'
-      ]
+      ],
+      verified: false
     }
   },
   computed: {
@@ -84,6 +85,7 @@ export default Vue.extend({
     this.uploadedTime = this.data.uploaded_at
     this.description = this.data.description
     this.infoSource = this.data.infoSource
+    this.verified = this.data.verified
 
     // Causes errors if not put inside of a check
     if (typeof (this.data.viewCount) !== 'undefined') {
