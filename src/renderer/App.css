@@ -12,16 +12,25 @@ body {
 }
 
 .routerView {
-  margin-left: 200px;
   margin-top: 80px;
   transition-property: margin;
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
 }
+body[dir='ltr'] .routerView {
+  margin-left: 200px;
+}
+body[dir='rtl'] .routerView {
+  margin-right: 200px;
+}
 
-.expand {
+body[dir='ltr'] .expand {
   margin-left: 80px;
 }
+body[dir='rtl'] .expand {
+  margin-right: 80px;
+}
+
 
 .banner {
   width: 85%;
@@ -47,9 +56,15 @@ body {
 
 @media only screen and (max-width: 680px) {
   .expand, .routerView {
-    margin-left: 0px;
     margin-bottom: 80px;
   }
+  body[dir='ltr'] .expand, body[dir='ltr'] .routerView {
+    margin-left: 0;
+  }
+  body[dir='rtl'] .expand, body[dir='rtl'] .routerView {
+    margin-right: 0;
+  }
+
 
   .banner {
     width: 90%;

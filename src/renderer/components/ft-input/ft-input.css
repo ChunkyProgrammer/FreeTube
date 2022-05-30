@@ -12,7 +12,6 @@
   /* horizontal intentionally reduced to keep "I-beam pointer" visible */
   padding: 10px 8px;
   top: 5px;
-  left: 0;
   cursor: pointer;
   border-radius: 200px 200px 200px 200px;
   color: var(--primary-text-color);
@@ -22,6 +21,12 @@
   -moz-transition: background 0.2s ease-in, opacity 0.2s ease-in;
   -o-transition: background 0.2s ease-in, opacity 0.2s ease-in;
   transition: background 0.2s ease-in, opacity 0.2s ease-in;
+}
+body[dir='ltr'] .clearInputTextButton {
+  left: 0;
+}
+body[dir='rtl'] .clearInputTextButton {
+  right: 0;
 }
 
 .clearInputTextButton:hover {
@@ -174,6 +179,9 @@
 /*   color: white; */
 }
 
-.showClearTextButton .ft-input {
+body[dir='ltr'] .showClearTextButton .ft-input {
   padding-left: 2em;
+}
+body[dir='rtl'] .showClearTextButton .ft-input {
+  padding-right: 2em;
 }

@@ -50,12 +50,18 @@
     opacity: 0.6;
     position: absolute;
     top: 0;
-    left: 0;
     background-color: var(--primary-color);
 
     -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
     animation: sk-bounce 2.0s infinite ease-in-out;
 }
+body[dir='ltr'] .double-bounce1, body[dir='ltr'] .double-bounce2 {
+  left: 0;
+}
+body[dir='rtl'] .double-bounce1, body[dir='rtl'] .double-bounce2 {
+  right: 0;
+}
+
 
 .double-bounce2 {
     -webkit-animation-delay: -1.0s;

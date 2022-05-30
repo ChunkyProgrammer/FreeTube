@@ -64,7 +64,8 @@ export default Vue.extend({
       return this.$store.getters.getShowProgressBar
     },
     isRightAligned: function () {
-      return this.$i18n.locale === 'ar'
+      const locale = this.$i18n.locale
+      return locale === 'ar' || locale === 'fa' || locale === 'he' || locale === 'ur' || locale === 'yi'
     },
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
@@ -132,6 +133,8 @@ export default Vue.extend({
   watch: {
     windowTitle: 'setWindowTitle',
 
+    isRightAligned: 'setDirection',
+
     baseTheme: 'checkThemeSettings',
 
     mainColor: 'checkThemeSettings',
@@ -147,6 +150,7 @@ export default Vue.extend({
   created () {
     this.checkThemeSettings()
     this.setWindowTitle()
+    this.setDirection()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -483,6 +487,17 @@ export default Vue.extend({
     setWindowTitle: function() {
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
+      }
+    },
+
+    setDirection: function() {
+      const locale = this.$i18n.locale
+      document.querySelector('html').lang = locale
+      const bodyTag = document.querySelector('body')
+      if (this.isRightAligned) {
+        bodyTag.dir = 'rtl'
+      } else {
+        bodyTag.dir = 'ltr'
       }
     },
 
