@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import fs from 'fs'
+import path from 'path'
 
 const state = {
   currentInvidiousInstance: '',
@@ -24,39 +25,27 @@ const getters = {
 const actions = {
   async fetchInvidiousInstances({ commit }, payload) {
     const requestUrl = 'https://api.invidious.io/instances.json'
-
-    let response
     let instances = []
     try {
-      response = await $.getJSON(requestUrl)
-      instances = response.filter((instance) => {
-        if (instance[0].includes('.onion') || instance[0].includes('.i2p')) {
-          return false
-        } else {
-          return true
-        }
+      const response = await $.getJSON(requestUrl)
+      instances = response.filter((instance) => { // filter onion and i2p domains
+        return !instance[0].match(/\.(onion|i2p)/)
       }).map((instance) => {
         return instance[1].uri.replace(/\/$/, '')
       })
     } catch (err) {
-      console.log(err)
-      // Starts fallback strategy: read from static file
-      // And fallback to hardcoded entry(s) if static file absent
+      console.error(err)
+      // Read instances from static file
       const fileName = 'invidious-instances.json'
-      /* eslint-disable-next-line */
-      const fileLocation = payload.isDev ? './static/' : `${__dirname}/static/`
-      if (fs.existsSync(`${fileLocation}${fileName}`)) {
+      const fileLocation = payload.isDev ? './static/' : path.join(__dirname, 'static')
+      try {
         console.log('reading static file for invidious instances')
-        const fileData = fs.readFileSync(`${fileLocation}${fileName}`)
+        const fileData = fs.readFile(`${fileLocation}${fileName}`)
         instances = JSON.parse(fileData).map((entry) => {
           return entry.url
         })
-      } else {
-        console.log('unable to read static file for invidious instances')
-        instances = [
-          'https://invidious.snopyta.org',
-          'https://invidious.kavin.rocks/'
-        ]
+      } catch (err) {
+        console.error(err)
       }
     }
 
@@ -71,7 +60,7 @@ const actions = {
 
   invidiousAPICall({ state }, payload) {
     return new Promise((resolve, reject) => {
-      const requestUrl = state.currentInvidiousInstance + '/api/v1/' + payload.resource + '/' + payload.id + '?' + $.param(payload.params)
+      const requestUrl = `${state.currentInvidiousInstance}/api/v1/${payload.resource}/${payload.id}?${$.param(payload.params)}`
 
       $.getJSON(requestUrl, (response) => {
         resolve(response)
