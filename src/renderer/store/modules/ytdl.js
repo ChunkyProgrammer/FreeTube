@@ -38,47 +38,9 @@ const actions = {
         duration: ''
       }
 
-      let agent = {}
       const settings = rootState.settings
-      const useProxy = settings.useProxy
-
-      if (useProxy) {
-        const proxyProtocol = settings.proxyProtocol
-        const proxyHostname = settings.proxyHostname
-        const proxyPort = settings.proxyPort
-
-        switch (proxyProtocol) {
-          case 'http':
-            agent = new HttpProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'https':
-            agent = new HttpsProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'socks4':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 4
-            })
-            break
-          case 'socks5':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 5
-            })
-            break
-        }
-
-        payload.options.requestOptions = { agent }
-      }
-
+      const agent = helpers.createUserAgent(settings)
+      payload.options.requestOptions = { agent }
       commit('toggleIsYtSearchRunning')
 
       if (!IsEqual(defaultFilters, rootState.utils.searchSettings)) {
@@ -121,44 +83,8 @@ const actions = {
 
   async ytSearchGetFilters ({ rootState }, payload) {
     let options = null
-    let agent = null
     const settings = rootState.settings
-    const useProxy = settings.useProxy
-
-    if (useProxy) {
-      const proxyProtocol = settings.proxyProtocol
-      const proxyHostname = settings.proxyHostname
-      const proxyPort = settings.proxyPort
-
-      switch (proxyProtocol) {
-        case 'http':
-          agent = new HttpProxyAgent({
-            host: proxyHostname,
-            port: proxyPort
-          })
-          break
-        case 'https':
-          agent = new HttpsProxyAgent({
-            host: proxyHostname,
-            port: proxyPort
-          })
-          break
-        case 'socks4':
-          agent = new SocksProxyAgent({
-            host: proxyHostname,
-            port: proxyPort,
-            type: 4
-          })
-          break
-        case 'socks5':
-          agent = new SocksProxyAgent({
-            host: proxyHostname,
-            port: proxyPort,
-            type: 5
-          })
-          break
-      }
-    }
+    const agent = helpers.createUserAgent(settings)
 
     options = {
       requestOptions: { agent }
@@ -176,18 +102,8 @@ const actions = {
     console.log(filter)
 
     if (searchSettings.sortBy !== 'relevance') {
-      let filterValue
-      switch (searchSettings.sortBy) {
-        case 'rating':
-          filterValue = 'Rating'
-          break
-        case 'upload_date':
-          filterValue = 'Upload date'
-          break
-        case 'view_count':
-          filterValue = 'View count'
-          break
-      }
+      const sort = searchSettings.sortBy
+      const filterValue = `${sort[0].toUpperCase()}${sort.slice(1)}`.replace('_', '')
       filterUrl = filter.get('Sort by').get(filterValue).url
       filter = await ytsr.getFilters(filterUrl, options)
     }
@@ -252,52 +168,12 @@ const actions = {
     return new Promise((resolve, reject) => {
       console.log(playlistId)
       console.log('Getting playlist info please wait...')
-      let agent = null
       const settings = rootState.settings
-      const useProxy = settings.useProxy
-
-      if (useProxy) {
-        const proxyProtocol = settings.proxyProtocol
-        const proxyHostname = settings.proxyHostname
-        const proxyPort = settings.proxyPort
-
-        switch (proxyProtocol) {
-          case 'http':
-            agent = new HttpProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'https':
-            agent = new HttpsProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'socks4':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 4
-            })
-            break
-          case 'socks5':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 5
-            })
-            break
-        }
-      }
-      let locale = i18n.locale.replace('_', '-')
-
-      if (locale === 'nn') {
-        locale = 'no'
-      }
-
+      const agent = helpers.createUserAgent(settings)
+      const { hl, gl } = helpers.getHlGl()
       ytpl(playlistId, {
-        hl: locale,
+        hl: hl,
+        gl: gl,
         limit: Infinity,
         requestOptions: { agent }
       }).then((result) => {
@@ -311,47 +187,11 @@ const actions = {
   ytGetVideoInformation ({ rootState }, videoId) {
     return new Promise((resolve, reject) => {
       console.log('Getting video info please wait...')
-      let agent = null
       const settings = rootState.settings
-      const useProxy = settings.useProxy
-
-      if (useProxy) {
-        const proxyProtocol = settings.proxyProtocol
-        const proxyHostname = settings.proxyHostname
-        const proxyPort = settings.proxyPort
-
-        switch (proxyProtocol) {
-          case 'http':
-            agent = new HttpProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'https':
-            agent = new HttpsProxyAgent({
-              host: proxyHostname,
-              port: proxyPort
-            })
-            break
-          case 'socks4':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 4
-            })
-            break
-          case 'socks5':
-            agent = new SocksProxyAgent({
-              host: proxyHostname,
-              port: proxyPort,
-              type: 5
-            })
-            break
-        }
-      }
+      const agent = helpers.createUserAgent(settings)
 
       ytdl.getInfo(videoId, {
-        lang: 'en-US',
+        lang: helpers.getYTLocale(),
         requestOptions: { agent }
       }).then((result) => {
         resolve(result)
@@ -365,6 +205,63 @@ const actions = {
 const mutations = {
   toggleIsYtSearchRunning (state) {
     state.isYtSearchRunning = !state.isYtSearchRunning
+  }
+}
+
+const helpers = {
+  getYTLocale() {
+    let locale = i18n.locale.replace('_', '-')
+
+    if (locale === 'nn') {
+      locale = 'no'
+    }
+    return locale
+  },
+
+  getHlGl() {
+    const locale = this.getYTLocale().split('-')
+    const hl = locale[0]
+    const gl = (locale.length === 2) ? locale[1] : ''
+    return { hl, gl }
+  },
+
+  createProxyAgent(settings) {
+    const useProxy = settings.useProxy
+    let agent = null
+    if (useProxy) {
+      const proxyProtocol = settings.proxyProtocol
+      const proxyHostname = settings.proxyHostname
+      const proxyPort = settings.proxyPort
+      switch (proxyProtocol) {
+        case 'http':
+          agent = new HttpProxyAgent({
+            host: proxyHostname,
+            port: proxyPort
+          })
+          break
+        case 'https':
+          agent = new HttpsProxyAgent({
+            host: proxyHostname,
+            port: proxyPort
+          })
+          break
+        case 'socks4':
+          agent = new SocksProxyAgent({
+            host: proxyHostname,
+            port: proxyPort,
+            type: 4
+          })
+          break
+        case 'socks5':
+          agent = new SocksProxyAgent({
+            host: proxyHostname,
+            port: proxyPort,
+            type: 5
+          })
+          break
+      }
+    }
+    return agent
   }
 }
 
