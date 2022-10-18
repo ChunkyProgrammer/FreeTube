@@ -22,6 +22,7 @@
         <img
           :src="thumbnail"
           class="thumbnailImage"
+          alt=""
         >
       </router-link>
       <div
@@ -75,15 +76,17 @@
         :dropdown-options="dropdownOptions"
         @click="handleOptionsClick"
       />
-      <router-link
-        class="title"
-        :to="{
-          path: `/watch/${id}`,
-          query: playlistId ? {playlistId} : {}
-        }"
-      >
-        {{ title }}
-      </router-link>
+      <h2>
+        <router-link
+          class="title"
+          :to="{
+            path: `/watch/${id}`,
+            query: playlistId ? {playlistId} : {}
+          }"
+        >
+          {{ title }}
+        </router-link>
+      </h2>
       <div class="infoLine">
         <router-link
           class="channelName"

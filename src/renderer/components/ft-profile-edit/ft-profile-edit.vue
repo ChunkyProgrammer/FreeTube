@@ -18,9 +18,13 @@
         <div
           v-for="(color, index) in colorValues"
           :key="index"
+          :title="color + ' ' + $t('Profile.Custom Color')"
           class="colorOption"
           :style="{ background: color }"
+          tabindex="0"
           @click="profileBgColor = color"
+          @keydown.space.prevent="profileBgColor = color"
+          @keydown.enter.prevent="profileBgColor = color"
         />
       </ft-flex-box>
       <ft-flex-box

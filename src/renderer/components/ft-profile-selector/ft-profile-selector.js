@@ -4,7 +4,7 @@ import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import { showToast } from '../../helpers/utils'
-
+import { sanitizeForHtmlId, handleDropdownKeyboardEvent } from '../../helpers/accessibility'
 export default Vue.extend({
   name: 'FtProfileSelector',
   components: {
@@ -37,6 +37,7 @@ export default Vue.extend({
     }
   },
   methods: {
+    sanitizeForHtmlId,
     toggleProfileList: function () {
       this.profileListShown = !this.profileListShown
 
@@ -71,6 +72,13 @@ export default Vue.extend({
     },
 
     setActiveProfile: function (profile) {
+      const openProfileSettingsButton = document.getElementById('profileSettings')
+      if (!handleDropdownKeyboardEvent(event, event?.currentTarget, openProfileSettingsButton)) {
+        return
+      }
+
+      const activeProfile = document.getElementById(`profile-${sanitizeForHtmlId(this.activeProfile.name)}`)
+      activeProfile?.setAttribute('aria-selected', 'false')
       if (this.activeProfile._id !== profile._id) {
         const targetProfile = this.profileList.find((x) => {
           return x._id === profile._id
