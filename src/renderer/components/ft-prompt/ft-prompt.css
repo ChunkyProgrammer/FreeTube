@@ -1,7 +1,6 @@
 .prompt {
   position: fixed;
   top: 0px;
-  left: 0px;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -12,13 +11,23 @@
   flex-direction: column;
   justify-content: center;
 }
-
+body[dir='ltr'] .prompt {
+  left: 0;
+}
+body[dir='rtl'] .prompt {
+  right: 0;
+}
 .promptCard {
   width: 95%;
   margin: 0;
   position: absolute;
-  left: 2.5%;
   box-sizing: border-box;
+}
+body[dir='ltr'] .promptCard {
+  left: 2.5%;
+}
+body[dir='rtl'] .promptCard {
+  right: 2.5%;
 }
 
 .center {

@@ -68,12 +68,6 @@
   color: var(--secondary-text-color)
   user-select: none
 
-  &.left
-    right: calc(50% - 10px)
-
-  &.right
-    left: calc(50% - 10px)
-
   .list
     margin: 0
     padding: 0
@@ -101,3 +95,16 @@
     // Too "visible" with current color
     opacity: 50%
 
+body[dir='ltr'] .iconDropdown
+  &.left
+    right: calc(50% - 10px)
+
+  &.right
+    left: calc(50% - 10px)
+
+body[dir='rtl'] .iconDropdown
+  &.left
+    left: calc(50% - 10px)
+
+  &.right
+    right: calc(50% - 10px)

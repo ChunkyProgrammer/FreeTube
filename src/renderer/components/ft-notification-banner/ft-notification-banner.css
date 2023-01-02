@@ -19,13 +19,27 @@
 }
 
 .message {
-  margin-right: 25px;
   cursor: pointer;
+}
+
+body[dir='ltr'] .message {
+  margin-right: 25px;
+}
+
+body[dir='rtl'] .message {
+  margin-left: 25px;
 }
 
 .bannerIcon {
   position: absolute;
   top: 35%;
-  right: 10px;
   cursor: pointer;
+}
+
+body[dir='ltr'] .bannerIcon {
+  right: 10px;
+}
+
+body[dir='rtl'] .bannerIcon {
+  left: 10px;
 }

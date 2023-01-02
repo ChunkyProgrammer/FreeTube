@@ -23,13 +23,21 @@
   display: inline;
   position: absolute;
   top: 60px;
-  right: 10px;
   min-width: 250px;
   height: 400px;
   padding: 5px;
   background-color: var(--card-bg-color);
   box-shadow: 0 0 4px var(--scrollbar-color-hover);
 }
+
+body[dir='ltr'] .profileList {
+  right: 10px;
+}
+
+body[dir='rtl'] .profileList {
+  left: 10px;
+}
+
 
 .profileWrapper {
   margin-top: 60px;
@@ -54,28 +62,57 @@
 }
 
 .profile .colorOption {
-  float: left;
   position: relative;
   bottom: 5px;
   margin: 10px;
+}
+
+body[dir='ltr'] .profile .colorOption {
+  float: left;
+}
+
+body[dir='rtl'] .profile .colorOption {
+  float: right;
 }
 
 .profileName {
   display: flex;
   align-items: center;
   height: 50px;
+}
+
+body[dir='ltr'] .profileName {
   padding-right: 10px;
+}
+
+body[dir='rtl'] .profileName {
+  padding-left: 10px;
 }
 
 .profileListTitle {
   position: absolute;
   margin: 0;
+}
+
+body[dir='ltr'] .profileListTitle {
   left: 10px;
 }
 
+body[dir='rtl'] .profileListTitle {
+  right: 10px;
+}
+
 .profileSettings {
-  float: right;
   position: absolute;
   top: 10px;
+}
+
+body[dir='ltr'] .profileSettings {
+  float: right;
   right: 5px;
+}
+
+body[dir='rtl'] .profileSettings {
+  float: left;
+  left: 5px;
 }

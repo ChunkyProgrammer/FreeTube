@@ -191,7 +191,11 @@ export default Vue.extend({
           if (this.forceActionButtonIconName === null) {
             if (isYoutubeLink) {
               // Go to URL (i.e. Video/Playlist/Channel
-              this.actionButtonIconName = ['fas', 'arrow-right']
+              if (document.querySelector('body').dir === 'ltr') {
+                this.actionButtonIconName = ['fas', 'arrow-right']
+              } else {
+                this.actionButtonIconName = ['fas', 'arrow-left']
+              }
             } else {
               // Search with text
               this.actionButtonIconName = ['fas', 'search']

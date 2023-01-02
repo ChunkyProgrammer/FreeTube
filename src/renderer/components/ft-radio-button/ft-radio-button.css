@@ -17,12 +17,18 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
 
 .pure-checkbox input[type="checkbox"] + label, .pure-radiobutton input[type="checkbox"] + label, .pure-checkbox input[type="radio"] + label, .pure-radiobutton input[type="radio"] + label {
   position: relative;
-  padding-left: 2em;
-  vertical-align: middle;
   user-select: none;
   cursor: pointer;
   display: block;
   margin-bottom: -20px;
+}
+
+body[dir='ltr'] .pure-checkbox input[type="checkbox"] + label, body[dir='ltr'] .pure-radiobutton input[type="checkbox"] + label, body[dir='ltr'] .pure-checkbox input[type="radio"] + label, body[dir='ltr'] .pure-radiobutton input[type="radio"] + label {
+  padding-left: 2em;
+}
+
+body[dir='rtl'] .pure-checkbox input[type="checkbox"] + label, body[dir='rtl'] .pure-radiobutton input[type="checkbox"] + label, body[dir='rtl'] .pure-checkbox input[type="radio"] + label, body[dir='rtl'] .pure-radiobutton input[type="radio"] + label {
+  padding-right: 2em;
 }
 
 .pure-checkbox input[type="checkbox"] + label:before, .pure-radiobutton input[type="checkbox"] + label:before, .pure-checkbox input[type="radio"] + label:before, .pure-radiobutton input[type="radio"] + label:before {
@@ -31,7 +37,6 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   color: var(--primary-color);
   position: absolute;
   top: 50%;
-  left: 0;
   width: 14px;
   height: 14px;
   margin-top: -9px;
@@ -40,19 +45,34 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   transition: all 0.4s ease;
 }
 
+body[dir='ltr'] .pure-checkbox input[type="checkbox"] + label:before, body[dir='ltr'] .pure-radiobutton input[type="checkbox"] + label:before, body[dir='ltr'] .pure-checkbox input[type="radio"] + label:before, body[dir='ltr'] .pure-radiobutton input[type="radio"] + label:before {
+  left: 0;
+}
+
+body[dir='rtl'] .pure-checkbox input[type="checkbox"] + label:before, body[dir='rtl'] .pure-radiobutton input[type="checkbox"] + label:before, body[dir='rtl'] .pure-checkbox input[type="radio"] + label:before, body[dir='rtl'] .pure-radiobutton input[type="radio"] + label:before {
+  right: 0;
+}
+
 .pure-checkbox input[type="checkbox"] + label:after, .pure-radiobutton input[type="checkbox"] + label:after, .pure-checkbox input[type="radio"] + label:after, .pure-radiobutton input[type="radio"] + label:after {
   box-sizing: content-box;
   content: '';
   background-color: var(--primary-color);
   position: absolute;
   top: 50%;
-  left: 4px;
   width: 10px;
   height: 10px;
   margin-top: -5px;
   transform: scale(0);
   transform-origin: 50%;
   transition: transform 200ms ease-out;
+}
+
+body[dir='ltr'] .pure-checkbox input[type="checkbox"] + label:after, body[dir='ltr'] .pure-radiobutton input[type="checkbox"] + label:after, body[dir='ltr'] .pure-checkbox input[type="radio"] + label:after, body[dir='ltr'] .pure-radiobutton input[type="radio"] + label:after {
+ left: 4px;
+}
+
+body[dir='rtl'] .pure-checkbox input[type="checkbox"] + label:after, body[dir='rtl'] .pure-radiobutton input[type="checkbox"] + label:after, body[dir='rtl'] .pure-checkbox input[type="radio"] + label:after, body[dir='rtl'] .pure-radiobutton input[type="radio"] + label:after {
+  right: 4px;
 }
 
 .pure-checkbox input[type="checkbox"]:disabled + label:before, .pure-radiobutton input[type="checkbox"]:disabled + label:before, .pure-checkbox input[type="radio"]:disabled + label:before, .pure-radiobutton input[type="radio"]:disabled + label:before { border-color: #cccccc; }
@@ -64,7 +84,6 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
 .pure-checkbox input[type="checkbox"] + label:after, .pure-radiobutton input[type="checkbox"] + label:after {
   background-color: transparent;
   top: 50%;
-  left: 4px;
   width: 8px;
   height: 3px;
   margin-top: -4px;
@@ -72,6 +91,14 @@ pure-checkbox input[type="checkbox"], .pure-radiobutton input[type="checkbox"], 
   border-width: 0 0 3px 3px;
   border-image: none;
   transform: rotate(-45deg) scale(0);
+}
+
+body[dir='ltr'] .pure-checkbox input[type="checkbox"] + label:after, body[dir='ltr']  .pure-radiobutton input[type="checkbox"] + label:after {
+  left: 4px;
+}
+
+body[dir='rtl'] .pure-checkbox input[type="checkbox"] + label:after, body[dir='rtl']  .pure-radiobutton input[type="checkbox"] + label:after {
+  right: 4px;
 }
 
 .pure-checkbox input[type="checkbox"]:checked + label:after, .pure-radiobutton input[type="checkbox"]:checked + label:after {

@@ -28,8 +28,9 @@
   cursor: pointer
   padding: 1px
 
-.sectionTitle
-  margin-left: 2%
+body[dir='ltr']
+  .sectionTitle
+    margin-left: 2%
 
 :deep(.switchGrid)
   display: grid
@@ -62,21 +63,42 @@
 
 @media only screen and (max-width: 680px)
   .settingsSection
+    :deep(.switch-ctn.containsTooltip)
+      padding: 0px 10px 0px 10px
+    :not(.select, .selectLabel)
+      > :deep(.tooltip)
+        display: inline-block
+        position: absolute
+        top: 12px
+    .settingsFlexStart460px :deep(.tooltip)
+      top: -2px
+    :deep(.switch-ctn)
+      margin: 10px 7px
+
+  body[dir='ltr']
+    .settingsSection
     > div
       :deep(.text.bottom)
         left: -85px
     :deep(.switch-ctn.containsTooltip)
       left: -10px
       margin-right: 5px
-      padding: 0px 10px 0px 10px
     :not(.select, .selectLabel)
       > :deep(.tooltip)
-        display: inline-block
-        position: absolute
         right: -25px
-        top: 12px
     .settingsFlexStart460px :deep(.tooltip)
       right: 0px
-      top: -2px
-    :deep(.switch-ctn)
-      margin: 10px 7px
+
+  // body[dir='rtl']
+  //   .settingsSection
+  //   > div
+  //     :deep(.text.bottom)
+  //       right: -85px
+  //   :deep(.switch-ctn.containsTooltip)
+  //     right: -10px
+  //     margin-left: 5px
+  //   :not(.select, .selectLabel)
+  //     > :deep(.tooltip)
+  //       left: -25px
+  //   .settingsFlexStart460px :deep(.tooltip)
+  //     left: 0px

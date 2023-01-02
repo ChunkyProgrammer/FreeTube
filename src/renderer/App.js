@@ -12,6 +12,7 @@ import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
+import i18n from './i18n/index'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 
 let ipcRenderer = null
@@ -124,7 +125,7 @@ export default Vue.extend({
     }
   },
   watch: {
-    windowTitle: 'setWindowTitle',
+    windowTitle: 'setWindowTitleAndLanguageDirection',
 
     baseTheme: 'checkThemeSettings',
 
@@ -140,7 +141,7 @@ export default Vue.extend({
   },
   created () {
     this.checkThemeSettings()
-    this.setWindowTitle()
+    this.setWindowTitleAndLanguageDirection()
   },
   mounted: function () {
     this.grabUserSettings().then(async () => {
@@ -499,9 +500,18 @@ export default Vue.extend({
       }
     },
 
-    setWindowTitle: function() {
+    setWindowTitleAndLanguageDirection: function() {
       if (this.windowTitle !== null) {
         document.title = this.windowTitle
+      }
+      const locale = i18n.locale.replace('_', '-')
+      document.querySelector('html').lang = locale
+      const rightToLeftLanguages = ['ar', 'fa', 'he', 'ur', 'yi']
+      const body = document.querySelector('body')
+      if (rightToLeftLanguages.includes(locale)) {
+        body.dir = 'rtl'
+      } else {
+        body.dir = 'ltr'
       }
     },
 

@@ -2,23 +2,41 @@
   position: relative;
 }
 
-.ft-input-component.search.showClearTextButton {
+body[dir='ltr'] .ft-input-component.search.showClearTextButton {
   padding-left: 30px;
 }
 
-.ft-input-component.search.clearTextButtonVisible,
-.ft-input-component.search.showClearTextButton:focus-within {
+body[dir='rtl'] .ft-input-component.search.showClearTextButton {
+  padding-right: 30px;
+}
+
+body[dir='ltr'] .ft-input-component.search.clearTextButtonVisible,
+body[dir='ltr'] .ft-input-component.search.showClearTextButton:focus-within {
   padding-left: 0;
 }
 
-.ft-input-component.showClearTextButton:not(.search) .ft-input {
+body[dir='rtl'] .ft-input-component.search.clearTextButtonVisible,
+body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within {
+  padding-right: 0;
+}
+
+body[dir='ltr'] .ft-input-component.showClearTextButton:not(.search) .ft-input {
   padding-left: 46px;
 }
 
+body[dir='rtl'] .ft-input-component.showClearTextButton:not(.search) .ft-input {
+  padding-right: 46px;
+}
+
 /* Main search input */
-.clearTextButtonVisible.search .ft-input,
-.ft-input-component.search.showClearTextButton:focus-within .ft-input {
+body[dir='ltr'] .clearTextButtonVisible.search .ft-input,
+body[dir='ltr'] .ft-input-component.search.showClearTextButton:focus-within .ft-input {
   padding-left: 46px;
+}
+
+body[dir='rtl'] .clearTextButtonVisible.search .ft-input,
+body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .ft-input {
+  padding-right: 46px;
 }
 
 .ft-input-component:focus-within .clearInputTextButton {
@@ -39,7 +57,6 @@
 .clearInputTextButton {
   position: absolute;
   top: 5px;
-  left: 0;
   /* To be higher than `.inputWrapper` */
   z-index: 1;
   margin: 0 3px;
@@ -50,6 +67,14 @@
   -moz-transition: background 0.2s ease-in;
   -o-transition: background 0.2s ease-in;
   transition: background 0.2s ease-in;
+}
+
+body[dir='ltr'] .clearInputTextButton {
+  left: 0;
+}
+
+body[dir='rtl'] .clearInputTextButton {
+  right: 0;
 }
 
 .clearInputTextButton.visible:hover {
@@ -124,11 +149,18 @@
   margin: 0 3px;
   padding: 10px;
   top: -8px;
-  right: 0;
   border-radius: 100%;
   color: var(--primary-text-color);
   /* this should look disabled by default */
   opacity: 50%;
+}
+
+body[dir='ltr'] .inputAction {
+  right: 0;
+}
+
+body[dir='rtl'] .inputAction {
+  left: 0;
 }
 
 .inputAction.enabled {
@@ -146,12 +178,20 @@
   color: #EEEEEE;
 }
 
-.ft-input-component.showActionButton .ft-input {
+body[dir='ltr'] .ft-input-component.showActionButton .ft-input {
   /*
   With arrow present means
   the text might get under the arrow with normal padding
    */
   padding-right: calc(36px + 6px);
+}
+
+body[dir='rtl'] .ft-input-component.showActionButton .ft-input {
+  /*
+  With arrow present means
+  the text might get under the arrow with normal padding
+   */
+  padding-left: calc(36px + 6px);
 }
 
 .inputAction.enabled:hover {

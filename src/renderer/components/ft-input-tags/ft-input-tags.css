@@ -20,19 +20,30 @@
   margin: 5px;
   border-radius: 5px;
   display:flex;
+}
+
+body[dir='ltr'] .ft-tag-box li {
   float: left;
+}
+body[dir='rtl'] .ft-tag-box li {
+  float: right;
 }
 
 .ft-tag-box li>span {
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 10px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
   hyphens: auto;
 }
 
+body[dir='ltr'] .ft-tag-box li>span {
+  padding-left: 10px;
+}
+body[dir='rtl'] .ft-tag-box li>span {
+  padding-right: 10px;
+}
 
 .removeTagButton {
   color: var(--primary-text-color);

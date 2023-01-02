@@ -2,8 +2,14 @@
   position: fixed;
   height: 3px;
   bottom: 0px;
-  left: 0px;
   background-color: var(--primary-color);
   z-index: 1;
   transition: width 0.5s;
+}
+
+body[dir='ltr'] .progressBar {
+  left: 0;
+}
+body[dir='ltr'] .progressBar {
+  right: 0;
 }

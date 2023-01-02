@@ -27,7 +27,10 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .searchRadio {
+  body[dir='ltr'] .searchRadio {
     border-right: 0;
+  }
+  body[dir='rtl'] .searchRadio {
+    border-left: 0;
   }
 }
