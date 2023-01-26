@@ -1,16 +1,19 @@
 <template>
   <div
-    class="ft-list-video ft-list-item"
+    class="ft-list-playlist ft-list-item"
     :appearance="appearance"
     :class="{ list: listType === 'list', grid: listType === 'grid' }"
+    @keydown.left.right.prevent="arrowKeyNavigate($event)"
   >
     <router-link
       class="videoThumbnail"
       :to="`/playlist/${playlistId}`"
+      tabindex="-1"
     >
       <img
         :src="thumbnail"
         class="thumbnailImage"
+        alt=""
       >
       <div
         class="videoCountContainer"
@@ -33,12 +36,14 @@
         :use-shadow="false"
         @click="handleExternalPlayer"
       />
-      <router-link
-        class="title"
-        :to="`/playlist/${playlistId}`"
-      >
-        {{ title }}
-      </router-link>
+      <h2 class="resultHeading">
+        <router-link
+          class="title"
+          :to="`/playlist/${playlistId}`"
+        >
+          {{ title }}
+        </router-link>
+      </h2>
       <div class="infoLine">
         <router-link
           v-if="channelId"

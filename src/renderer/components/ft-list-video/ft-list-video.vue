@@ -7,6 +7,7 @@
       [appearance]: true,
       watched: addWatchedStyle
     }"
+    @keydown.left.right.prevent="arrowKeyNavigate($event)"
   >
     <div
       class="videoThumbnail"
@@ -22,6 +23,7 @@
         <img
           :src="thumbnail"
           class="thumbnailImage"
+          alt=""
         >
       </router-link>
       <div
@@ -78,15 +80,17 @@
         :dropdown-options="dropdownOptions"
         @click="handleOptionsClick"
       />
-      <router-link
-        class="title"
-        :to="{
-          path: `/watch/${id}`,
-          query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
-        }"
-      >
-        {{ displayTitle }}
-      </router-link>
+      <h2 class="resultHeading">
+        <router-link
+          class="title"
+          :to="{
+            path: `/watch/${id}`,
+            query: playlistIdFinal ? {playlistId: playlistIdFinal} : {}
+          }"
+        >
+          {{ displayTitle }}
+        </router-link>
+      </h2>
       <div class="infoLine">
         <router-link
           class="channelName"

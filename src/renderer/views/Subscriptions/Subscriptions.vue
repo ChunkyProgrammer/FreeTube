@@ -11,7 +11,7 @@
       <div
         v-if="errorChannels.length !== 0"
       >
-        <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
+        <h1> {{ $t("Subscriptions.Error Channels") }}</h1>
         <div>
           <ft-channel-bubble
             v-for="(channel, index) in errorChannels"
@@ -24,7 +24,7 @@
           />
         </div>
       </div>
-      <h3>{{ $t("Subscriptions.Subscriptions") }}</h3>
+      <h1>{{ $t("Subscriptions.Subscriptions") }}</h1>
       <ft-flex-box
         v-if="activeVideoList.length === 0"
       >

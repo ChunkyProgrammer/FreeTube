@@ -1,3 +1,7 @@
+nav {
+  width: fit-content !important;
+}
+
 .sideNav {
   display: block;
   height: calc(100vh - 60px);

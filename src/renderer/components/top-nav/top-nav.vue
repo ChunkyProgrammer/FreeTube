@@ -1,5 +1,5 @@
 <template>
-  <div
+  <nav
     class="topNav"
     :class="{ topNavBarColor: barColor }"
   >
@@ -104,7 +104,7 @@
       />
     </div>
     <ft-profile-selector class="side profiles" />
-  </div>
+  </nav>
 </template>
 
 <script src="./top-nav.js" />

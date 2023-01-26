@@ -6,24 +6,29 @@
       grid: listType === 'grid',
       [appearance]: true
     }"
+    @keydown.left.right.prevent="arrowKeyNavigate($event)"
   >
     <div class="channelThumbnail">
       <router-link
         :to="`/channel/${id}`"
+        tabindex="-1"
       >
         <img
           :src="thumbnail"
           class="channelImage"
+          alt=""
         >
       </router-link>
     </div>
     <div class="info">
-      <router-link
-        class="title"
-        :to="`/channel/${id}`"
-      >
-        {{ channelName }}
-      </router-link>
+      <h2 class="resultHeading">
+        <router-link
+          class="title"
+          :to="`/channel/${id}`"
+        >
+          {{ channelName }}
+        </router-link>
+      </h2>
       <div class="infoLine">
         <span
           v-if="subscriberCount !== null"

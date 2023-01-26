@@ -202,10 +202,11 @@ $watched-transition-duration: 0.5s;
       float: right;
     }
 
-    .title {
+    .title,
+    .resultHeading {
       @include low-contrast-when-watched(var(--primary-text-color));
-
       font-size: 20px;
+      font-weight: normal;
       text-decoration: none;
       word-break: break-word;
       word-wrap: break-word;

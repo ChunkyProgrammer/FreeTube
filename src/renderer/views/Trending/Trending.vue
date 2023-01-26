@@ -8,7 +8,7 @@
       v-else
       class="card"
     >
-      <h3>{{ $t("Trending.Trending") }}</h3>
+      <h1>{{ $t("Trending.Trending") }}</h1>
       <ft-flex-box
         class="trendingInfoTabs"
         role="tablist"

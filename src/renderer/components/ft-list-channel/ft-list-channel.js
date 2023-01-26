@@ -87,6 +87,21 @@ export default defineComponent({
       }
       this.videoCount = formatNumber(this.data.videoCount)
       this.description = this.data.description
+    },
+
+    arrowKeyNavigate(event) {
+      const direction = (event.key === 'ArrowLeft') ? -1 : 1
+      const listItems = Array.from(document.querySelectorAll('.ft-list-item'))
+      const thisIndex = listItems.findIndex(element => {
+        return element === event.currentTarget
+      })
+      let newIndex = thisIndex + direction
+      if (newIndex < 0) {
+        newIndex = listItems.length - 1
+      } else if (newIndex > listItems.length - 1) {
+        newIndex = 0
+      }
+      listItems[newIndex].querySelector('.resultHeading > a').focus()
     }
   }
 })
