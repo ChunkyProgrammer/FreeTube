@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue'
-import FtToastEvents from './ft-toast-events.js'
 
 export default defineComponent({
   name: 'FtToast',
@@ -9,10 +8,10 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    FtToastEvents.$on('toast-open', this.open)
+    this.emmiter.$on('toast-open', this.open)
   },
   beforeDestroy: function () {
-    FtToastEvents.$off('toast-open', this.open)
+    this.emmiter.$off('toast-open', this.open)
   },
   methods: {
     performAction: function (index) {

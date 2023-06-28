@@ -1,7 +1,6 @@
 import fs from 'fs/promises'
-
+import { getCurrentInstance } from 'vue'
 import { IpcChannels } from '../../constants'
-import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
 import router from '../router/index'
 
@@ -189,7 +188,13 @@ export async function getFormatsFromHLSManifest(manifestUrl) {
 }
 
 export function showToast(message, time = null, action = null) {
-  FtToastEvents.$emit('toast-open', message, time, action)
+  const currentInstance = getCurrentInstance()
+  currentInstance.appContext.config.globalProperties.emitter.$emit(
+    'toast-open',
+    message,
+    time,
+    action
+  )
 }
 
 /**

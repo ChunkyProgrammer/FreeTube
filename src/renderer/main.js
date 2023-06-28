@@ -1,9 +1,9 @@
 // import the styles
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
+import mitt from 'mitt'
 import router from './router/index'
 import store from './store/index'
-import i18n from './i18n/index'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faAngleDown,
@@ -65,10 +65,7 @@ import {
   faMonero
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-Vue.config.devtools = process.env.NODE_ENV === 'development'
-Vue.config.performance = process.env.NODE_ENV === 'development'
-Vue.config.productionTip = process.env.NODE_ENV === 'development'
+import { createI18n } from 'vue-i18n'
 
 library.add(
   // solid icons
@@ -131,16 +128,27 @@ library.add(
   faMonero
 )
 
-Vue.component('FontAwesomeIcon', FontAwesomeIcon)
-
-/* eslint-disable-next-line no-new */
-new Vue({
-  el: '#app',
-  router,
-  store,
-  i18n,
-  render: h => h(App)
+const i18n = createI18n({
+  globalInjection: true,
+  legacy: false,
+  locale: 'en-US',
+  fallbackLocale: 'en-US',
+  messages: {
+    en: {}
+  }
 })
+
+const emitter = mitt()
+window.i18n = i18n
+
+const app = createApp(App)
+app.config.performance = process.env.NODE_ENV === 'development'
+app.config.globalProperties.emitter = emitter
+app.use(i18n)
+app.use(router)
+app.use(store)
+app.component('FontAwesomeIcon', FontAwesomeIcon)
+app.mount('#mount')
 
 // to avoid accessing electron api from web app build
 if (process.env.IS_ELECTRON) {
