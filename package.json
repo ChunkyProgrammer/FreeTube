@@ -113,7 +113,7 @@
     "rimraf": "^4.1.2",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
-    "stylelint": "^14.16.1",
+    "stylelint": "^15.10.1",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-high-performance-animation": "^1.7.0",
