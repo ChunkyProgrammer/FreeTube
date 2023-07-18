@@ -29,7 +29,7 @@
           v-if="subscriberCount !== null && !hideChannelSubscriptions"
           class="subscriberCount"
         >
-          {{ subscriberCount }} subscribers -
+          {{ $tc('Subscriber Count', subscriberCount, {subscriberCount: parsedSubscriberCount}) }} -
         </span>
         <router-link
           v-if="handle !== null"
@@ -42,7 +42,7 @@
           v-else
           class="videoCount"
         >
-          {{ videoCount }} videos
+          {{ $tc('Video Count', videoCount, {videoCount: parsedVideoCount}) }}
         </span>
       </div>
       <p

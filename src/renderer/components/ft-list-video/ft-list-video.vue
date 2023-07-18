@@ -85,9 +85,7 @@
           <span>{{ channelName }}</span>
         </router-link>
         <template v-if="!isLive && !isUpcoming && !isPremium && !hideViews">
-          <span class="viewCount"><template v-if="channelId !== null"> •</template> {{ parsedViewCount }} </span>
-          <span v-if="viewCount === 1">{{ $t("Video.View").toLowerCase() }}</span>
-          <span v-else>{{ $t("Video.Views").toLowerCase() }}</span>
+          <span class="viewCount"><template v-if="channelId !== null"> •</template> {{ $tc('View Count', viewCount, {viewCount: parsedViewCount }) }} </span>
         </template>
         <span
           v-if="uploadedTime !== '' && !isLive && !inHistory"
@@ -100,7 +98,7 @@
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
-        > • {{ parsedViewCount }} {{ $t("Video.Watching").toLowerCase() }}</span>
+        > • {{ $tc('Watching Count', viewCount, {watchingCount: parsedViewCount}) }}</span>
       </div>
       <ft-icon-button
         class="optionsButton"

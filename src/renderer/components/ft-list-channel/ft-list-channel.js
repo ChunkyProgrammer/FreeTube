@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { formatNumber } from '../../helpers/utils'
+import { parseLocalSubscriberCount } from '../../helpers/api/local'
 
 export default defineComponent({
   name: 'FtListChannel',
@@ -20,7 +21,9 @@ export default defineComponent({
       thumbnail: '',
       channelName: '',
       subscriberCount: 0,
-      videoCount: '',
+      videoCount: 0,
+      parsedSubscriberCount: '',
+      parsedVideoCount: '',
       handle: null,
       description: ''
     }
@@ -53,12 +56,18 @@ export default defineComponent({
 
       this.channelName = this.data.name
       this.id = this.data.id
-      this.subscriberCount = this.data.subscribers != null ? this.data.subscribers.replace(/ subscriber(s)?/, '') : null
+      if (this.data.subscribers != null) {
+        this.subscriberCount = parseLocalSubscriberCount(this.data.subscribers)
+        this.parsedSubscriberCount = formatNumber(this.subscriberCount)
+      } else {
+        this.subscriberCount = null
+      }
 
       if (this.data.videos === null) {
         this.videoCount = 0
       } else {
-        this.videoCount = formatNumber(this.data.videos)
+        this.videoCount = this.data.videos
+        this.parsedVideoCount = formatNumber(this.videoCount)
       }
 
       if (this.data.handle) {
@@ -76,8 +85,10 @@ export default defineComponent({
 
       this.channelName = this.data.author
       this.id = this.data.authorId
-      this.subscriberCount = formatNumber(this.data.subCount)
-      this.videoCount = formatNumber(this.data.videoCount)
+      this.subscriberCount = this.data.subCount
+      this.parsedSubscriberCount = formatNumber(this.subscriberCount)
+      this.videoCount = this.data.videoCount
+      this.parsedVideoCount = formatNumber(this.videoCount)
       this.description = this.data.description
     }
   }

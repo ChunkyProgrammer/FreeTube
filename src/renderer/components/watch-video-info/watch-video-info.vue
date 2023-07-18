@@ -46,7 +46,7 @@
         {{ publishedString }} {{ dateString }}
       </div>
       <div class="viewCount">
-        {{ parsedViewCount }}
+        {{ $tc('View Count', viewCount, {viewCount: parsedViewCount }) }}
       </div>
       <div
         v-if="!hideVideoLikesAndDislikes"

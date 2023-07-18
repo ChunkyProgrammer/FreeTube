@@ -22,7 +22,7 @@
         {{ title }}
       </h2>
       <p>
-        {{ videoCount }} {{ $t("Playlist.Videos") }} - <span v-if="!hideViews">{{ viewCount }} {{ $t("Playlist.Views") }} -</span>
+        {{ $tc('Video Count', videoCount, {videoCount: parsedVideoCount }) }} - <span v-if="!hideViews">{{ $tc('View Count', viewCount, {viewCount: parsedViewCount }) }} -</span>
         <span v-if="infoSource !== 'local'">
           {{ $t("Playlist.Last Updated On") }}
         </span>

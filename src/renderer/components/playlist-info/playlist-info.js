@@ -23,10 +23,12 @@ export default defineComponent({
       channelName: '',
       channelId: '',
       videoCount: 0,
+      parsedVideoCount: '',
       viewCount: 0,
+      parsedViewCount: '',
       lastUpdated: '',
       description: '',
-      infoSource: ''
+      infoSource: '',
     }
   },
   computed: {
@@ -83,11 +85,17 @@ export default defineComponent({
 
     // Causes errors if not put inside of a check
     if (typeof (this.data.viewCount) !== 'undefined' && !isNaN(this.data.viewCount)) {
-      this.viewCount = this.hideViews ? null : formatNumber(this.data.viewCount)
+      if (this.hideViews) {
+        this.viewCount = null
+      } else {
+        this.viewCount = this.data.viewCount
+        this.parsedViewCount = formatNumber(this.viewCount)
+      }
     }
 
     if (typeof (this.data.videoCount) !== 'undefined' && !isNaN(this.data.videoCount)) {
-      this.videoCount = formatNumber(this.data.videoCount)
+      this.videoCount = this.data.viewCount
+      this.parsedVideoCount = formatNumber(this.data.videoCount)
     }
 
     this.lastUpdated = this.data.lastUpdated

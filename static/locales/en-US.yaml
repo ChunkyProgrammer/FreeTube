@@ -889,3 +889,8 @@ Hashtag:
 Yes: Yes
 No: No
 Ok: Ok
+Video Count: '1 video | {videoCount} videos'
+Channel Count: '1 channel | {channelCount} channels'
+Subscriber Count: '1 subscriber | {subscriberCount} subscribers'
+View Count: '1 view | {viewCount} views'
+Watching Count: '1 watching | {watchingCount} watching'
