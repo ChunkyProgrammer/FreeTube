@@ -4,23 +4,11 @@
     "cors": true
   },
   {
-    "url": "https://inv.riverside.rocks",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.nerdvpn.de",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.tiekoetter.com",
+    "url": "https://invidious.flokinet.to",
     "cors": true
   },
   {
     "url": "https://inv.bp.projectsegfau.lt",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.flokinet.to",
     "cors": true
   },
   {
@@ -32,23 +20,7 @@
     "cors": true
   },
   {
-    "url": "https://invidious.sethforprivacy.com",
-    "cors": true
-  },
-  {
     "url": "https://invidious.projectsegfau.lt",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.baczek.me",
-    "cors": true
-  },
-  {
-    "url": "https://yt.funami.tech",
-    "cors": true
-  },
-  {
-    "url": "https://iv.ggtyler.dev",
     "cors": true
   },
   {
@@ -60,11 +32,15 @@
     "cors": true
   },
   {
-    "url": "https://vid.priv.au",
+    "url": "https://inv.tux.pizza",
     "cors": true
   },
   {
-    "url": "https://invidious.0011.lt",
+    "url": "https://yt.oelrichsgarcia.de",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.protokolla.fi",
     "cors": true
   },
   {
@@ -72,15 +48,31 @@
     "cors": true
   },
   {
+    "url": "https://invidious.io.lol",
+    "cors": true
+  },
+  {
+    "url": "https://invidious.0011.lt",
+    "cors": true
+  },
+  {
+    "url": "https://iv.nboeck.de",
+    "cors": true
+  },
+  {
+    "url": "https://inv.in.projectsegfau.lt",
+    "cors": true
+  },
+  {
+    "url": "https://onion.tube",
+    "cors": true
+  },
+  {
     "url": "https://invidious.slipfox.xyz",
     "cors": true
   },
   {
-    "url": "https://yt.floss.media",
-    "cors": false
-  },
-  {
-    "url": "https://invidious.nogafa.org",
+    "url": "https://invidious.no-logs.com",
     "cors": true
   },
   {
@@ -88,11 +80,11 @@
     "cors": true
   },
   {
-    "url": "https://invidious.esmailelbob.xyz",
+    "url": "https://inv.makerlab.tech",
     "cors": true
   },
   {
-    "url": "https://invidious.snopyta.org",
+    "url": "https://inv.citw.lgbt",
     "cors": true
   }
 ]
