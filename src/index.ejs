@@ -6,7 +6,10 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0" />
     <% if (!process.env.IS_ELECTRON) { %>
-    <link rel="manifest" href="static/manifest.json" />
+      <link rel="manifest" href="static/manifest.json" />
+    <% } %>
+    <% if (process.env.IS_ELECTRON && process.env.NODE_ENV === 'development') { %>
+      <script src="http://localhost:8098"></script>
     <% } %>
     <title></title>
     <% if (htmlWebpackPlugin.options.nodeModules) { %>

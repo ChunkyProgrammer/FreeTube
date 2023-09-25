@@ -445,24 +445,10 @@ function runApp() {
 
     await createWindow()
 
-    if (process.env.NODE_ENV === 'development') {
-      installDevTools()
-    }
-
     if (isDebug) {
       mainWindow.webContents.openDevTools()
     }
   })
-
-  async function installDevTools() {
-    try {
-      /* eslint-disable */
-      require('vue-devtools').install()
-      /* eslint-enable */
-    } catch (err) {
-      console.error(err)
-    }
-  }
 
   async function createWindow(
     {
