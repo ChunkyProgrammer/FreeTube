@@ -1,5 +1,5 @@
 {
-  "plugins": ["stylelint-use-logical-spec"],
+  "plugins": ["stylelint-use-logical-spec", "./_scripts/stylelint-float-rule.js"],
   "overrides": [
     {
       "files": ["**/*.scss"],
@@ -16,6 +16,7 @@
     }
   ],
   "rules": {
-    "liberty/use-logical-spec": ["always", { "except": ["float"] }]
+    "liberty/use-logical-spec": ["always", { "except": ["float"] }],
+    "freetube/use-float-var": true
   }
 }
