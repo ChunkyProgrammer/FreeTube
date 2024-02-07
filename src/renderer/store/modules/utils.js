@@ -425,13 +425,13 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|podcasts|releases|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|podcasts|releases|playlists|about|community|channels))?\/?$/i
 
-    const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
+    const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/i
 
     const typePatterns = new Map([
-      ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
-      ['search', /^\/results|search\/?$/],
+      ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/i],
+      ['search', /^\/results|search\/?$/i],
       ['hashtag', hashtagPattern],
       ['channel', channelPattern]
     ])
@@ -544,7 +544,7 @@ const actions = {
         }
 
         let subPath = null
-        switch (match.groups.tab) {
+        switch (match.groups.tab.toLowerCase()) {
           case 'shorts':
             subPath = 'shorts'
             break
