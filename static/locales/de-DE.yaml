@@ -44,7 +44,7 @@ Global:
     View Count: 1 Aufruf | {count} Aufrufe
     Watching Count: 1 Zuschauer | {count} Zuschauer
   Input Tags:
-    Length Requirement: Deutsch
+    Length Requirement: Der Tag muss mindestens {number} Zeichen lang sein
 Search / Go to URL: Suche / Gehe zur URL
   # In Filter Button
 Search Filters:
@@ -294,6 +294,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Pink
       Pastel Pink: Pastellrosa
+      Nordic: Nordic
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -568,6 +569,10 @@ Settings:
     Hide Channels Already Exists: Kanal-ID bereits vorhanden
     Hide Channels API Error: Fehler beim Abrufen von Benutzern mit der bereitgestellten
       ID. Bitte überprüfen Sie erneut, ob der Ausweis korrekt ist.
+    Hide Videos and Playlists Containing Text: Videos und Playlisten verstecken, die
+      Text enthalten
+    Hide Videos and Playlists Containing Text Placeholder: Wort, Teil eines Wortes
+      oder Satz
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -764,6 +769,7 @@ Channel:
     votes: '{votes} Stimmen'
     Reveal Answers: Antworten aufzeigen
     Hide Answers: Antworten verbergen
+    Video hidden by FreeTube: Video versteckt von FreeTube
   Live:
     Live: Live
     This channel does not currently have any live streams: Dieser Kanal hat derzeit
@@ -1008,7 +1014,7 @@ Up Next: Nächster Titel
 Local API Error (Click to copy): Lokaler API-Fehler (Zum Kopieren anklicken)
 Invidious API Error (Click to copy): Invidious-API-Fehler (Zum Kopieren anklicken)
 Falling back to Invidious API: Rückgriff auf Invidious-API
-Falling back to the local API: Rückgriff auf lokale API
+Falling back to Local API: Rückgriff auf lokale API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses
   Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im
   Land kann dafür der Grund sein.
@@ -1163,6 +1169,11 @@ Tooltips:
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung
       „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer
       Kraft gesetzt
+    Hide Videos and Playlists Containing Text: Gebe ein Wort, einen Teil eines Wortes
+      oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und
+      Playlisten, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden.
+      Dein Verlauf, deine eigenen Playlisten und Videos innerhalb deiner Playlisten
+      sind davon nicht betroffen.
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von Benutzern eingereichte Titel von DeArrow
       ersetzen.
@@ -1193,11 +1204,6 @@ Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
 Screenshot Success: Bildschirmfoto als „{filePath}“ gespeichert
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
-Age Restricted:
-  Type:
-    Video: Video
-    Channel: Kanal
-  This {videoOrPlaylist} is age restricted: Dieses {videoOrPlaylist} ist altersbeschränkt
 Channels:
   Channels: Kanäle
   Title: Kanalliste
@@ -1231,3 +1237,7 @@ Playlist will not pause when current video is finished: Wiedergabeliste wird nic
 Channel Hidden: '{channel} wurde zum Kanalfilter hinzugefügt'
 Go to page: Gehe zu {page}
 Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'
+Trimmed input must be at least N characters long: Gekürzte Eingaben müssen mindestens
+  1 Zeichen lang sein | Gekürzte Eingaben müssen mindestens {length} Zeichen lang
+  sein
+Tag already exists: Die Markierung „{tagName}“ existiert bereits

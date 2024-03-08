@@ -6,47 +6,15 @@
       >
         {{ title }}
       </h1>
-      <div
-        class="channelInformation"
-      >
-        <div
-          class="profileRow"
-        >
-          <div>
-            <router-link
-              :to="`/channel/${channelId}`"
-            >
-              <img
-                :src="channelThumbnail"
-                class="channelThumbnail"
-                alt=""
-              >
-            </router-link>
-          </div>
-          <div>
-            <router-link
-              :to="`/channel/${channelId}`"
-              class="channelName"
-            >
-              {{ channelName }}
-            </router-link>
-            <ft-subscribe-button
-              v-if="!hideUnsubscribeButton"
-              :channel-id="channelId"
-              :channel-name="channelName"
-              :channel-thumbnail="channelThumbnail"
-              :subscription-count-text="subscriptionCountText"
-            />
-          </div>
-        </div>
-      </div>
     </div>
-    <div>
-      <div class="datePublished">
+    <div class="videoMetrics">
+      <div class="datePublishedAndViewCount">
         {{ publishedString }} {{ dateString }}
-      </div>
-      <div class="viewCount">
-        {{ parsedViewCount }}
+        <template
+          v-if="!hideVideoViews"
+        >
+          <span class="seperator">• </span><span class="videoViews">{{ parsedViewCount }}</span>
+        </template>
       </div>
       <div
         v-if="!hideVideoLikesAndDislikes"
@@ -55,9 +23,7 @@
         <div
           class="likeSection"
         >
-          <div>
-            <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
-          </div>
+          <span class="likeCount"><font-awesome-icon :icon="['fas', 'thumbs-up']" /> {{ parsedLikeCount }}</span>
         </div>
       </div>
       <!--
@@ -80,6 +46,38 @@
         </div>
       </div>
       -->
+    </div>
+    <div class="videoButtons">
+      <div
+        class="profileRow"
+      >
+        <div>
+          <router-link
+            :to="`/channel/${channelId}`"
+          >
+            <img
+              :src="channelThumbnail"
+              class="channelThumbnail"
+              alt=""
+            >
+          </router-link>
+        </div>
+        <div>
+          <router-link
+            :to="`/channel/${channelId}`"
+            class="channelName"
+          >
+            {{ channelName }}
+          </router-link>
+          <ft-subscribe-button
+            v-if="!hideUnsubscribeButton"
+            :channel-id="channelId"
+            :channel-name="channelName"
+            :channel-thumbnail="channelThumbnail"
+            :subscription-count-text="subscriptionCountText"
+          />
+        </div>
+      </div>
       <div class="videoOptions">
         <ft-icon-button
           v-if="showPlaylists && !isUpcoming"
