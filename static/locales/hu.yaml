@@ -285,6 +285,9 @@ Settings:
       Ask Before Opening Link: Hivatkozás megnyitása előtt kérése
       Open Link: Hivatkozás megnyitása
       External Link Handling: Külső hivatkozás kezelése
+    Auto Load Next Page:
+      Label: Következő oldal automatikus betöltése
+      Tooltip: További oldalak és megjegyzések automatikus betöltése.
   Theme Settings:
     Theme Settings: 'Téma beállítások'
     Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
@@ -299,6 +302,8 @@ Settings:
       Pastel Pink: Pasztell rózsaszín
       Hot Pink: Forró rózsaszín
       Nordic: Skandináv
+      Solarized Light: Szolarizált világos
+      Solarized Dark: Szolarizált sötét
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -338,6 +343,14 @@ Settings:
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rózsavíz
       Catppuccin Mocha Peach: Catppuccin Mocha Barackvirágszínű
       Catppuccin Mocha Yellow: Catppuccin Mocha Sárga
+      Solarized Yellow: Szolarizált sárga
+      Solarized Orange: Szolarizált narancssárga
+      Solarized Red: Szolarizált vörös
+      Solarized Blue: Szolarizált kék
+      Solarized Cyan: Szolarizált ciánkék
+      Solarized Green: Szolarizált zöld
+      Solarized Magenta: Szolarizált magenta
+      Solarized Violet: Szolarizált ibolya
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -646,6 +659,7 @@ Settings:
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
   Expand All Settings Sections: Beállítások kiterjesztése
+  Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
 About:
   #On About page
   About: 'Névjegy'
@@ -705,6 +719,8 @@ About:
   FAQ: GyIK
   Report a problem: Probléma jelentése
   Discussions: Megbeszélések
+  AGPLv3: licenc alapján
+  Licensed under the: Az AGPLv3
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
@@ -972,6 +988,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Lejátszási lista
+  Sort By:
+    DateAddedOldest: Legrégebbiek elől
+    DateAddedNewest: Legújabbak elől
+    Sort By: Rendezés
+    AuthorAscending: Szerző szerint (A-Z)
+    AuthorDescending: Szerző szerint (Z-A)
+    VideoTitleAscending: Cím szerint (A-Z)
+    VideoTitleDescending: Cím szerint (Z-A)
+    Custom: Egyéni rendezés
 Toggle Theatre Mode: 'Mozi mód be-/kikapcsolása'
 Change Format:
   Change Media Formats: 'Videoformátumok módosítása'
@@ -1206,3 +1231,12 @@ Age Restricted:
   This video is age restricted: Ez a videó korhatáros
 Display Label: '{label}: {value}'
 checkmark: ✓
+Feed:
+  Feed Last Updated: '{feedName} frissítve: {date}'
+  Refresh Feed: '{subscriptionName} frissítése'
+Moments Ago: épp most
+Cancel: Mégse
+Yes, Delete: Igen, törlés
+Yes, Restart: Igen, újraindítás
+Yes, Open Link: Igen, hivatkozás megnyitása
+Search character limit: A keresési lekérdezés túllépte a {searchCharacterLimit} karakterhatárt

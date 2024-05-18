@@ -275,6 +275,9 @@ Settings:
       External Link Handling: Rakenduseväline lingikäsitlus
       Open Link: Ava link
       Ask Before Opening Link: Küsi enne lingi avamist
+    Auto Load Next Page:
+      Label: Laadi järgmine leht automaatselt
+      Tooltip: Laadi järgmised lehed ja kommentaarid automaatselt.
   Theme Settings:
     Theme Settings: 'Välimuse seadistused'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
@@ -289,6 +292,8 @@ Settings:
       Pastel Pink: Pastelne roosa
       Hot Pink: Säravroosa
       Nordic: Põhjala
+      Solarized Dark: Tume päikesekuma
+      Solarized Light: Hele päikesekuma
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -328,6 +333,14 @@ Settings:
       Catppuccin Mocha Teal: Catppuccin Mocha Rohekassinine
       Catppuccin Mocha Sky: Catppuccin Mocha Helesinine
       Catppuccin Mocha Sapphire: Catppuccin Mocha Safiir
+      Solarized Orange: Oranž päikesekuma
+      Solarized Red: Punane päikesekuma
+      Solarized Magenta: Fuksiapunane päikesekuma
+      Solarized Violet: Punakassinine päikesekuma
+      Solarized Blue: Sinine päikesekuma
+      Solarized Cyan: Rohekassinine päikesekuma
+      Solarized Green: Roheline päikesekuma
+      Solarized Yellow: Kollane päikesekuma
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
@@ -599,6 +612,7 @@ Settings:
     Set Password: Määra salasõna
     Set Password To Prevent Access: Vältimaks ligipääsu seadistustele määra salasõna
   Expand All Settings Sections: Laienda kõik seadistuste lõigud
+  Sort Settings Sections (A-Z): Järjesta seadistused (A-Z)
 About:
   #On About page
   About: 'Teave'
@@ -629,6 +643,8 @@ About:
   Source code: Lähtekood
   Beta: beetaversioon
   Discussions: Arutelud
+  Licensed under the: Avaldatud ja litsentseeritud
+  AGPLv3: AGPLv3 alusel
 Profile:
   Profile Select: 'Vali profiil'
   All Channels: 'Kõik kanalid'
@@ -903,6 +919,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Esitusloend
+  Sort By:
+    Custom: Kohandatud
+    Sort By: Järjestuse alus
+    DateAddedNewest: Esmalt viimatilisatud
+    DateAddedOldest: Esmalt ammu lisatud
+    AuthorAscending: Autori alusel (A-Z)
+    AuthorDescending: Autori alusel (Z-A)
+    VideoTitleAscending: Pealkirja alusel (A-Z)
+    VideoTitleDescending: Pealkirja alusel (Z-A)
 Toggle Theatre Mode: 'Lülita lai vaade sisse/välja'
 Change Format:
   Change Media Formats: 'Muuda videovorminguid'
@@ -1123,3 +1148,13 @@ Age Restricted:
 Close Banner: Sulge rekaampilt
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: '{feedName} tellimustevoo viimane uuendus: {date}'
+  Refresh Feed: Uuenda {subscriptionName} andmed
+Moments Ago: hetk tagasi
+Yes, Restart: Jah, käivita uuesti
+Cancel: Katkesta
+Search character limit: Otsingupäring on lubatud {searchCharacterLimit}-tähemärgisest
+  piirist pikem
+Yes, Delete: Jah, kustuta
+Yes, Open Link: Jah, ava link

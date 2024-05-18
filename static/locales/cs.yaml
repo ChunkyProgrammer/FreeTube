@@ -278,6 +278,9 @@ Settings:
       Ask Before Opening Link: Před otevřením odkazu se zeptat
       Open Link: Otevřít odkaz
       External Link Handling: Zpracování externích odkazů
+    Auto Load Next Page:
+      Label: Automaticky načíst další stránku
+      Tooltip: Automaticky načítat další stránky a komentáře.
   Theme Settings:
     Theme Settings: 'Nastavení motivu'
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
@@ -295,6 +298,8 @@ Settings:
       Hot Pink: Horká růžová
       Pastel Pink: Pastelově růžová
       Nordic: Nordic
+      Solarized Dark: Solarizovaná tmavá
+      Solarized Light: Solarizovaná světlá
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -334,6 +339,14 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Solarized Yellow: Solarizovaná žlutá
+      Solarized Orange: Solarizovaná oranžová
+      Solarized Red: Solarizovaná červená
+      Solarized Magenta: Solarizovaná purpurová
+      Solarized Violet: Solarizovaná fialová
+      Solarized Blue: Solarizovaná modrá
+      Solarized Cyan: Solarizovaná azurová
+      Solarized Green: Solarizovaná zelená
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt štítky na bočním panelu
@@ -623,6 +636,7 @@ Settings:
     Remove Password: Odebrat heslo
     Set Password: Nastavit heslo
   Expand All Settings Sections: Rozbalit všechny sekce nastavení
+  Sort Settings Sections (A-Z): Seřadit sekce nastavení (A-Z)
 About:
   #On About page
   About: 'O aplikaci'
@@ -679,6 +693,8 @@ About:
   Help: Nápověda
   GitHub releases: Vydání na GitHubu
   Discussions: Diskuze
+  Licensed under the: Licencováno pod
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -945,6 +961,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
+  Sort By:
+    Sort By: Seřadit podle
+    DateAddedNewest: Naposledy přidáno
+    DateAddedOldest: Nejdříve přidáno
+    AuthorAscending: Autor (A-Z)
+    AuthorDescending: Autor (Z-A)
+    VideoTitleDescending: Název (Z-A)
+    VideoTitleAscending: Název (A-Z)
+    Custom: Vlastní
 Toggle Theatre Mode: 'Přepnout režim divadla'
 Change Format:
   Change Media Formats: 'Změnit formát videa'
@@ -1168,3 +1193,13 @@ Age Restricted:
   This video is age restricted: Toto video je omezeno věkem
 checkmark: ✓
 Display Label: '{label}: {value}'
+Feed:
+  Feed Last Updated: 'Zdroj {feedName} naposledy aktualizován: {date}'
+  Refresh Feed: Obnovit {subscriptionName}
+Moments Ago: chvílí
+Yes, Delete: Ano, odstranit
+Yes, Restart: Ano, restartovat
+Yes, Open Link: Ano, otevřít odkaz
+Cancel: Zrušit
+Search character limit: Vyhledávaný dotaz obsahuje více znaků, než povolený limit
+  ({searchCharacterLimit})

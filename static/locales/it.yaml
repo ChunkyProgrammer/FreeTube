@@ -276,6 +276,9 @@ Settings:
       Ask Before Opening Link: Chiedi prima di aprire il link
       Open Link: Apri link
       External Link Handling: Gestione dei link esterni
+    Auto Load Next Page:
+      Label: Carica automaticamente la pagina successiva
+      Tooltip: Carica automaticamente pagine e commenti aggiuntivi.
   Theme Settings:
     Theme Settings: 'Impostazioni del tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore al colore principale'
@@ -290,6 +293,8 @@ Settings:
       Pastel Pink: Rosa pastello
       Hot Pink: Rosa caldo
       Nordic: Nordico
+      Solarized Dark: Solarizzato scuro
+      Solarized Light: Solarizzato chiaro
     Main Color Theme:
       Main Color Theme: 'Colore principale del tema'
       Red: 'Rosso'
@@ -329,6 +334,14 @@ Settings:
       Catppuccin Mocha Peach: Cappuccino moka pesca
       Catppuccin Mocha Teal: Cappuccino moka alzavola
       Catppuccin Mocha Sky: Cappuccino moka cielo
+      Solarized Yellow: Solarizzato giallo
+      Solarized Orange: Solarizzato arancione
+      Solarized Red: Solarizzato rosso
+      Solarized Magenta: Solarizzato magenta
+      Solarized Violet: Solarizzato viola
+      Solarized Cyan: Solarizzato ciano
+      Solarized Green: Solarizzato verde
+      Solarized Blue: Solarizzato blu
     Secondary Color Theme: 'Colore secondario del tema'
         #* Main Color Theme
     UI Scale: Dimensioni dell'interfaccia utente
@@ -643,6 +656,7 @@ Settings:
       Impostazioni
     Remove Password: Rimuovi password
   Expand All Settings Sections: Espandi tutte le sezioni delle Impostazioni
+  Sort Settings Sections (A-Z): Ordina le sezioni delle Impostazioni (A-Z)
 About:
   #On About page
   About: 'Informazioni'
@@ -701,6 +715,8 @@ About:
   Source code: Codice sorgente
   Beta: Beta
   Discussions: Discussioni
+  AGPLv3: AGPLv3
+  Licensed under the: Concesso con licenza
 Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
@@ -932,6 +948,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: Playlist
+  Sort By:
+    Sort By: Ordina per
+    Custom: Personalizzato
+    VideoTitleDescending: Titolo (Z-A)
+    AuthorDescending: Autore (Z-A)
+    AuthorAscending: Autore (A-Z)
+    DateAddedNewest: Prima gli aggiunti più nuovi
+    DateAddedOldest: Prima gli aggiunti più vecchi
+    VideoTitleAscending: Titolo (A-Z)
 Toggle Theatre Mode: 'Attiva/disattiva la modalità teatro'
 Change Format:
   Change Media Formats: 'Cambia formato video'
@@ -1215,3 +1240,12 @@ Age Restricted:
 Close Banner: Chiudi banner
 checkmark: ✓
 Display Label: '{label}: {value}'
+Moments Ago: pochi istanti fa
+Feed:
+  Feed Last Updated: 'Ultimo aggiornamento del feed {feedName}: {date}'
+  Refresh Feed: Aggiorna {subscriptionName}
+Yes, Delete: Sì, elimina
+Yes, Restart: Sì, riavvia
+Yes, Open Link: Sì, apri link
+Cancel: Annulla
+Search character limit: La query di ricerca supera il limite di caratteri {searchCharacterLimit}

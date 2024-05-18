@@ -3,8 +3,6 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
   position: relative;
-
-  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -76,9 +74,29 @@
     }
   }
 
+  &.destructive {
+    background-color: var(--destructive-color);
+    color: var(--destructive-text-color);
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--destructive-hover-color);
+    }
+
+    &:active {
+      background-color: var(--destructive-active-color);
+    }
+  }
+
   &.favorite, &.favorite:hover, &.favorite:focus-visible {
     color: var(--favorite-icon-color);
   }
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
 }
 
 .iconDropdown {
@@ -90,7 +108,6 @@
   list-style-type: none;
   position: absolute;
   text-align: center;
-  -webkit-user-select: none;
   user-select: none;
   z-index: 3;
 

@@ -5,6 +5,7 @@ import {
   copyToClipboard,
   formatDurationAsTimestamp,
   formatNumber,
+  getRelativeTimeFromDate,
   openExternalLink,
   showToast,
   toDistractionFreeTitle,
@@ -84,6 +85,7 @@ export default defineComponent({
       default: false,
     },
   },
+  emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],
   data: function () {
     return {
       id: '',
@@ -283,26 +285,30 @@ export default defineComponent({
             {
               label: this.$t('Video.Open Channel in Invidious'),
               value: 'openInvidiousChannel'
-            },
-            {
-              type: 'divider'
             }
           )
-
-          const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
-          const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelId)
-          if (channelShouldBeHidden) {
-            options.push({
-              label: this.$t('Video.Unhide Channel'),
-              value: 'unhideChannel'
-            })
-          } else {
-            options.push({
-              label: this.$t('Video.Hide Channel'),
-              value: 'hideChannel'
-            })
-          }
         }
+      }
+
+      if (this.channelId !== null) {
+        const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
+        const channelShouldBeHidden = hiddenChannels.some(c => c === this.channelId)
+
+        options.push(
+          {
+            type: 'divider'
+          },
+
+          channelShouldBeHidden
+            ? {
+                label: this.$t('Video.Unhide Channel'),
+                value: 'unhideChannel'
+              }
+            : {
+                label: this.$t('Video.Hide Channel'),
+                value: 'hideChannel'
+              }
+        )
       }
 
       return options
@@ -342,6 +348,10 @@ export default defineComponent({
 
     addWatchedStyle: function () {
       return this.historyEntryExists && !this.inHistory
+    },
+
+    currentLocale: function () {
+      return this.$i18n.locale.replace('_', '-')
     },
 
     externalPlayer: function () {
@@ -459,14 +469,6 @@ export default defineComponent({
       if (this.playlistTypeFinal) { query.playlistType = this.playlistTypeFinal }
       if (this.playlistItemIdFinal) { query.playlistItemId = this.playlistItemIdFinal }
       return query
-    },
-
-    currentLocale: function () {
-      return this.$i18n.locale.replace('_', '-')
-    },
-
-    showAddToPlaylistPrompt: function () {
-      return this.$store.getters.getShowAddToPlaylistPrompt
     },
 
     useDeArrowTitles: function () {
@@ -667,48 +669,8 @@ export default defineComponent({
         if (this.inHistory) {
           this.uploadedTime = new Date(this.data.published).toLocaleDateString([this.currentLocale, 'en'])
         } else {
-          const now = new Date().getTime()
-          // Convert from ms to second
-          // For easier code interpretation the value is made to be positive
-          let timeDiffFromNow = ((now - this.data.published) / 1000)
-          let timeUnit = 'second'
-
-          if (timeDiffFromNow >= 60) {
-            timeDiffFromNow /= 60
-            timeUnit = 'minute'
-          }
-
-          if (timeUnit === 'minute' && timeDiffFromNow >= 60) {
-            timeDiffFromNow /= 60
-            timeUnit = 'hour'
-          }
-
-          if (timeUnit === 'hour' && timeDiffFromNow >= 24) {
-            timeDiffFromNow /= 24
-            timeUnit = 'day'
-          }
-
-          const timeDiffFromNowDays = timeDiffFromNow
-
-          if (timeUnit === 'day' && timeDiffFromNow >= 7) {
-            timeDiffFromNow /= 7
-            timeUnit = 'week'
-          }
-
           // Use 30 days per month, just like calculatePublishedDate
-          if (timeUnit === 'week' && timeDiffFromNowDays >= 30) {
-            timeDiffFromNow = timeDiffFromNowDays / 30
-            timeUnit = 'month'
-          }
-
-          if (timeUnit === 'month' && timeDiffFromNow >= 12) {
-            timeDiffFromNow /= 12
-            timeUnit = 'year'
-          }
-
-          // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
-          // Notice that the value is turned to negative to be displayed as "ago"
-          this.uploadedTime = new Intl.RelativeTimeFormat([this.currentLocale, 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
+          this.uploadedTime = getRelativeTimeFromDate(new Date(this.data.published), false)
         }
       }
 
@@ -846,6 +808,17 @@ export default defineComponent({
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
+    },
+    moveVideoUp: function() {
+      this.$emit('move-video-up')
+    },
+
+    moveVideoDown: function() {
+      this.$emit('move-video-down')
+    },
+
+    removeFromPlaylist: function() {
+      this.$emit('remove-from-playlist')
     },
 
     ...mapActions([

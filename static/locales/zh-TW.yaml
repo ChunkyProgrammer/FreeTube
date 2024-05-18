@@ -239,6 +239,9 @@ Settings:
       Ask Before Opening Link: 開啟連結前詢問
       Open Link: 開啟連結
       External Link Handling: 外部連結處理
+    Auto Load Next Page:
+      Tooltip: 自動載入額外頁面與留言。
+      Label: 自動載入下一頁
   Theme Settings:
     Theme Settings: '主題設定'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'
@@ -253,6 +256,8 @@ Settings:
       Pastel Pink: 淡粉紅色
       Hot Pink: 亮粉紅色
       Nordic: 北歐
+      Solarized Dark: Solarized Dark
+      Solarized Light: Solarized Light
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -292,6 +297,14 @@ Settings:
       Catppuccin Mocha Sky: 卡布奇諾摩卡天藍色
       Catppuccin Mocha Peach: 卡布奇諾摩卡桃紅色
       Catppuccin Mocha Sapphire: 卡布奇諾摩卡藍寶石色
+      Solarized Yellow: Solarized 黃色
+      Solarized Orange: Solarized 橘色
+      Solarized Red: Solarized 紅色
+      Solarized Magenta: Solarized 洋紅色
+      Solarized Violet: Solarized 紫色
+      Solarized Blue: Solarized 藍色
+      Solarized Cyan: Solarized 青色
+      Solarized Green: Solarized 綠色
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
@@ -563,6 +576,7 @@ Settings:
     Password Incorrect: 密碼不正確
     Unlock: 解鎖
   Expand All Settings Sections: 展開所有設定
+  Sort Settings Sections (A-Z): 對設定區塊進行排序 (A-Z)
 About:
   #On About page
   About: '關於'
@@ -622,6 +636,8 @@ About:
   Licensed under the AGPLv3: 以 AGPLv3 授權
   Source code: 原始碼
   Discussions: 討論
+  Licensed under the: 授權以
+  AGPLv3: AGPLv3
 Channel:
   Subscriber: '訂閱者'
   Subscribers: '訂閱者'
@@ -834,6 +850,15 @@ Playlist:
 #* Published
 #& Views
   Playlist: 播放清單
+  Sort By:
+    Sort By: 排序方式
+    DateAddedNewest: 最後新增優先
+    DateAddedOldest: 最早新增優先
+    AuthorAscending: 作者 (A-Z)
+    AuthorDescending: 作者 (Z-A)
+    VideoTitleAscending: 標題 (A-Z)
+    VideoTitleDescending: 標題 (Z-A)
+    Custom: 自訂
 Toggle Theatre Mode: '切換為劇院模式'
 Change Format:
   Change Media Formats: '變更影片格式'
@@ -1050,3 +1075,12 @@ Age Restricted:
   This video is age restricted: 此影片有年齡限制
 checkmark: ✓
 Display Label: '{label}：{value}'
+Moments Ago: 不久前
+Feed:
+  Feed Last Updated: '{feedName} feed 上次更新時間：{date}'
+  Refresh Feed: 重新整理 {subscriptionName}
+Yes, Delete: 是的，刪除
+Yes, Restart: 是的，重新啟動
+Yes, Open Link: 是的，開啟連結
+Cancel: 取消
+Search character limit: 搜尋查詢超出了 {searchCharacterLimit} 個字元的限制

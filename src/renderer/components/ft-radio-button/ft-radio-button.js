@@ -18,8 +18,13 @@ export default defineComponent({
     disabled: {
       type: Boolean,
       default: false
+    },
+    initialValueIndex: {
+      type: Number,
+      default: 0
     }
   },
+  emits: ['change'],
   data: function () {
     return {
       id: '',
@@ -34,11 +39,14 @@ export default defineComponent({
   },
   mounted: function () {
     this.id = this._uid
-    this.selectedValue = this.values[0]
+    this.selectedValue = this.values[this.initialValueIndex]
   },
   methods: {
     updateSelectedValue: function (value) {
       this.selectedValue = value
-    }
+    },
+    change: function(value) {
+      this.$emit('change', value)
+    },
   }
 })
