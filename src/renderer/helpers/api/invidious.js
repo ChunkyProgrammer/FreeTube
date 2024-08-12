@@ -78,10 +78,13 @@ export async function invidiousGetChannelInfo(channelId) {
   })
 }
 
-export async function invidiousGetPlaylistInfo(playlistId) {
+export async function invidiousGetPlaylistInfo(playlistId, page) {
   return await invidiousAPICall({
     resource: 'playlists',
     id: playlistId,
+    params: {
+      page: page
+    }
   })
 }
 

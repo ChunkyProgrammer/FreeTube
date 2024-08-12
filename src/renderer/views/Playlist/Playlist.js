@@ -348,8 +348,8 @@ export default defineComponent({
       })
     },
 
-    getPlaylistInvidious: function () {
-      invidiousGetPlaylistInfo(this.playlistId).then((result) => {
+    getPlaylistInvidious: function (page = 1) {
+      invidiousGetPlaylistInfo(this.playlistId, page).then((result) => {
         this.playlistTitle = result.title
         this.playlistDescription = result.description
         this.firstVideoId = result.videos[0].videoId
@@ -371,9 +371,20 @@ export default defineComponent({
 
         setPublishedTimestampsInvidious(result.videos)
 
-        this.playlistItems = result.videos
+        if (page === 1) {
+          this.playlistItems = result.videos
+        } else {
+          // fetching more
+          this.playlistItems = this.playlistItems.concat(result.videos)
+        }
 
         this.updatePageTitle()
+
+        // IV is hardcoded to load 200 videos for youtube videos. Note: IV only loads 100 for Invidious Playlists
+        if (result.videos.length >= 200) {
+          // page count
+          this.continuationData = page
+        }
 
         this.isLoading = false
       }).catch((err) => {
@@ -438,7 +449,9 @@ export default defineComponent({
           })
           break
         case 'invidious':
-          console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
+          this.continuationData = this.continuationData + 1
+          this.getPlaylistInvidious(this.continuationData)
+          // console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
           break
       }
     },
