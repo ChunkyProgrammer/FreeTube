@@ -42,6 +42,8 @@ Global:
     Subscriber Count: מנוי או מנויה 1 | {count} מנויים
     View Count: צפייה אחת | {count} צפיות
     Watching Count: צופה 1 | {count} צורפים
+  Input Tags:
+    Length Requirement: התגית חייבת להיות באורך של {number} תווים לפחות
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
@@ -86,6 +88,17 @@ Search Filters:
   Fetch more results: 'חיפוש תוצאות נוספות'
 # Sidebar
   There are no more results for this search: אין תוצאות נוספות לחיפוש הזה
+  Features:
+    Features: יכולות
+    HD: HD
+    4K: 4K
+    3D: תלת־ממד
+    Subtitles: כתוביות
+    Live: שידור חי
+    360 Video: וידאו 360
+    HDR: HDR
+    VR180: VR180
+    Location: מקום
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
@@ -124,6 +137,45 @@ User Playlists:
     שמרת סרטונים. יש ללחוץ על כפתור השמירה בפינת הסרטון כדי שיופיע כאן
   Search bar placeholder: חיפוש רשימות נגינה
   Empty Search Message: אין סרטונים ברשימת הנגינה הזו שעונים לחיפוש שלך
+  You have no playlists. Click on the create new playlist button to create a new one.: אין
+    לך רשימות נגינה. נא ללחוץ על כפתור יצירת רשימת נגינה חדשה כדי ליצור רשימת נגינה
+    חדשה.
+  Edit Playlist Info: עריכת פרטי רשימת נגינה
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: להסיר
+    סרטון משוכפל מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה. | להסיר {playlistItemCount}
+    סרטונים כפולים מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: להסיר
+    סרטון שנצפה מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה. | להסיר {playlistItemCount}
+    סרטונים שנצפו מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה.
+  Delete Playlist: מחיקת רשימת נגינה
+  Copy Playlist: העתקת רשימת נגינה
+  Remove Watched Videos: הסרת סרטונים שנצפו
+  Remove Duplicate Videos: הסרת סרטונים כפולים
+  Are you sure you want to delete this playlist? This cannot be undone: למחוק את רשימת
+    הנגינה הזו? זאת פעולה בלתי הפיכה.
+  Sort By:
+    EarliestUpdatedFirst: הראשונים שעודכנו
+    Sort By: מיון לפי
+    NameAscending: א-ת
+    NameDescending: ת-א
+    LatestPlayedFirst: האחרונים שהתנגנו
+    EarliestPlayedFirst: הראשונים שהתנגנו
+    LatestCreatedFirst: נוצרו לאחרונה
+    EarliestCreatedFirst: הראשונים שנוצרו
+    LatestUpdatedFirst: האחרונים שעודכנו
+  SinglePlaylistView:
+    Toast:
+      This playlist is already being used for quick bookmark.: רשימת הנגינה הזאת כבר
+        משמשת למועדפים זריזים.
+      This playlist is now used for quick bookmark: רשימת הנגינה הזאת משמשת כעת לסימניות
+        זריזות
+      This video cannot be moved up.: אי אפשר להעלות את הסרטון הזה למעלה.
+      This video cannot be moved down.: אי אפשר להוריד את הסרטון הזה למטה.
+      Video has been removed: הסרטון הוסר
+      There was a problem with removing this video: אירעה בעיה עם הסרת הסרטון הזה
+    Search for Videos: חיפוש סרטונים
+  Cannot delete the quick bookmark target playlist.: לא ניתן למחוק את רשימת הנגינה
+    ביעד הסימניות הזריזות.
 History:
   # On History Page
   History: 'היסטוריה'
@@ -238,7 +290,6 @@ Settings:
     Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
     Player Settings: 'הגדרת נגן'
-    Force Local Backend for Legacy Formats: 'כפיית המנגנון לניגון בפורמטים ישנים'
     Play Next Video: 'ניגון הסרטון הבא'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
     Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
@@ -289,7 +340,6 @@ Settings:
         ב־3 ספרות. ‎%i מזהה הסרטון. אפשר להשתמש גם ב־„/” או ב־„\” כדי ליצור תת־תיקיות.
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
-    Allow DASH AV1 formats: לאפשר תצורות DASH AV1
   Privacy Settings:
     Privacy Settings: 'הגדרות פרטיות'
     Remember History: 'לזכור את היסטוריית הצפייה'
@@ -331,8 +381,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'כל המינויים והפרופילים
       יובאו בהצלחה'
     All subscriptions have been successfully imported: 'כל המינויים יובאו בהצלחה'
-    One or more subscriptions were unable to be imported: 'לא ניתן היה לייבא אחד או
-      יותר מהמינויים'
     Invalid subscriptions file: 'קובץ מינויים בלתי קריא'
     This might take a while, please wait: 'זה עלול לקחת זמן מה, נא להמתין'
     Invalid history file: 'קובץ היסטוריה בלתי קריא'
@@ -723,11 +771,6 @@ Video:
   Published on: 'פורסם'
   Publicationtemplate: 'לפני {number} {unit}'
 #& Videos
-  Audio:
-    Best: איכות הכי טובה
-    High: איכות גבוהה
-    Medium: איכות בינונית
-    Low: איכות נמוכה
   audio only: שמע בלבד
   video only: סרטון בלבד
   Download Video: להוריד סרטון
@@ -740,7 +783,6 @@ Video:
   Video has been removed from your saved list: הסרטון הוסר מרשימת השמורים שלך
   Video has been saved: סרטון נשמר
   Save Video: שמירת סרטון
-  translated from English: תורגם מאנגלית
   Premieres on: שידור הבכורה ב־
   Sponsor Block category:
     outro: סיום
@@ -766,26 +808,6 @@ Video:
       looping playlists: לולאה על רשימות נגינה
       opening specific video in a playlist (falling back to opening the video): פתיחת
         סרטון מסוים ברשימת נגינה (ייסוג לפתיחת הסרטון)
-  Skipped segment: קטע שדילגת עליו
-  Stats:
-    video id: מזהה סרטון (YouTube)
-    bandwidth: מהירות החיבור
-    out of: מתוך
-    volume: עוצמת שמע
-    buffered: בזיכרון
-    frame drop: השמטת תמוניות
-    fps: תמוניות לשנייה
-    Video statistics are not available for legacy videos: סטטיסטיקת וידאו אינה זמינה
-      לסרטונים ישנים
-    Video ID: מזהה וידאו
-    Resolution: רזולוציה
-    Player Dimensions: ממדי נגן
-    Bitrate: קצב סיביות
-    Volume: עצמת שמע
-    Bandwidth: רוחב פס
-    Buffered: שמור בזיכרון
-    Dropped / Total Frames: תמוניות שהושמטו / סה״כ
-    Mimetype: טיפוס MIME
   Premieres in: בכורה בעוד
   Premieres: בכורות
   Scroll to Bottom: גלילה לתחתית
@@ -903,10 +925,6 @@ Tooltips:
     Region for Trending: מגמות אזוריות מאפשרות לך לבחור סרטונים חמים של איזו מדינה
       שמעניין אותך לראות.
   Player Settings:
-    Force Local Backend for Legacy Formats: עובד רק כאשר ה־API של Invidious הוא ברירת
-      המחדל שלך. כאשר האפשרות פעילה, ה־API המקומי יופעל וישתמש בתצורות המיושנות שהוחזרו
-      על ידיו במקום באלו שהוחזרו על ידי Invidious. מועיל כאשר הסרטונים שמוחזרים על
-      ידי Invidious לא מתנגנים עקב מגבלות חוקיות במדינה.
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
       להתחבר ישירות ל־YouTube. דורס את העדפת ה־API.
     Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן
@@ -919,9 +937,6 @@ Tooltips:
       בהגדרות).
     Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון,
       כמו ב־MPV.
-    Allow DASH AV1 formats: תסדירי DASH AV1 עשויים להיראות טוב יותר מתסדירי DASH H.264.
-      תסדירי DASH AV1 דורשים יותר חשמל כדי לנגן! הם אינם זמינים בכל הסרטונים, במקרים
-      האלה הנגן ישתמש בתסדירי DASH H.264 במקום.
   Subscription Settings:
     Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
       המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
@@ -1001,3 +1016,11 @@ Playlist will pause when current video is finished: רשימת הנגינה תו
   הנוכחי
 Playlist will not pause when current video is finished: רשימת הנגינה לא תושהה עם סיום
   הסרטון הנוכחי
+Close Banner: סגירת כרזה
+Go to page: מעבר אל {page}
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: כתוביות
+    Closed Captions: כתוביות לכבדי שמיעה
+Search character limit: שאילתת החיפוש חורגת ממגבלת התווים {searchCharacterLimit}
