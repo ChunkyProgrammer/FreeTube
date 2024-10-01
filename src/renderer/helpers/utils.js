@@ -12,10 +12,6 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 
-function currentLocale () {
-  return i18n.locale.replace('_', '-')
-}
-
 export function getIconForSortPreference(sortPreference) {
   switch (sortPreference) {
     case 'name_descending':
@@ -701,7 +697,7 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
 }
 
 export function formatNumber(number, options = undefined) {
-  return Intl.NumberFormat([i18n.locale.replace('_', '-'), 'en'], options).format(number)
+  return Intl.NumberFormat([i18n.locale, 'en'], options).format(number)
 }
 
 export function getTodayDateStrLocalTimezone() {
@@ -767,7 +763,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
 
   // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
   // Notice that the value is turned to negative to be displayed as "ago"
-  return new Intl.RelativeTimeFormat([currentLocale(), 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
+  return new Intl.RelativeTimeFormat([i18n.locale, 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
 }
 
 /**
@@ -851,4 +847,45 @@ export function base64EncodeUtf8(text) {
 
   const binString = Array.from(bytes, (byte) => String.fromCodePoint(byte)).join('')
   return btoa(binString)
+}
+
+/**
+ * @overload
+ * @param {string} channelId
+ * @param {'videos' | 'live' | 'shorts'} type
+ * @param {'newest' | 'popular'} sortBy
+ * @returns {string}
+ *
+ * @overload
+ * @param {string} channelId
+ * @param {'all'} type
+ * @returns {string}
+*
+ * @param {string} channelId
+ * @param {'all' | 'videos' | 'live' | 'shorts'} type
+ * @param {'newest' | 'popular'} sortBy
+ */
+export function getChannelPlaylistId(channelId, type, sortBy) {
+  switch (type) {
+    case 'videos':
+      if (sortBy === 'popular') {
+        return channelId.replace(/^UC/, 'UULP')
+      } else {
+        return channelId.replace(/^UC/, 'UULF')
+      }
+    case 'live':
+      if (sortBy === 'popular') {
+        return channelId.replace(/^UC/, 'UULV')
+      } else {
+        return channelId.replace(/^UC/, 'UUPV')
+      }
+    case 'shorts':
+      if (sortBy === 'popular') {
+        return channelId.replace(/^UC/, 'UUPS')
+      } else {
+        return channelId.replace(/^UC/, 'UUSH')
+      }
+    case 'all':
+      return channelId.replace(/^UC/, 'UU')
+  }
 }

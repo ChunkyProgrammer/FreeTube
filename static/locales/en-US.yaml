@@ -52,6 +52,8 @@ Global:
     Channel Count: 1 channel | {count} channels
     Subscriber Count: 1 subscriber | {count} subscribers
     View Count: 1 view | {count} views
+    Like Count: 1 like | {count} likes
+    Comment Count: 1 comment | {count} comments
     Watching Count: 1 watching | {count} watching
   Input Tags:
     Length Requirement: Tag must be at least {number} characters long
@@ -758,9 +760,11 @@ Channel:
   Community:
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
+    View Full Post: View Full Post
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
     Video hidden by FreeTube: Video hidden by FreeTube
+    Viewing Posts Only Supported By Invidious: Viewing Posts is only supported by Invidious. Head to a channel's community tab to view content there without Invidious.
 Video:
   More Options: More Options
   Mark As Watched: Mark As Watched
@@ -988,12 +992,14 @@ Comments:
   And others: and others
   There are no comments available for this video: There are no comments available
     for this video
+  There are no comments available for this post: There are no comments available for this post
   Load More Comments: Load More Comments
   No more comments available: No more comments available
   Pinned by: Pinned by
   Member: Member
   Subscribed: Subscribed
   Hearted: Hearted
+
 Up Next: Up Next
 
 #Tooltips
@@ -1016,7 +1022,7 @@ Tooltips:
       By default FreeTube will open the clicked link in your default browser.
   Player Settings:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-      of making a direct connection to YouTube. Overrides API preference.
+      of making a direct connection to YouTube.
     Default Video Format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 720p but use less
       bandwidth. Audio formats are audio only streams.
@@ -1047,7 +1053,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-      but doesn't provide certain information like video duration or live status
+      but doesn't provide certain information like video duration, live status or community posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed when a new window is opened and when switching profile.
   Experimental Settings:
